@@ -2,3 +2,17 @@
 *.i
 *.p1
 *.i
+*.d
+*.xml
+*.cmf
+*.elf
+*.hxl
+*.mum
+*.o
+*.rlf
+*.sdb
+*.sym
+Makefile
+*.mk
+*.properties
+*.bash
