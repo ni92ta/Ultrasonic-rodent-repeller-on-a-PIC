@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.sym \
   --cmf=dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.cmf \
-  -z -Q12F510 -oC:\Users\843E~1\AppData\Local\Temp\xcAsd84.4 \
+  -z -Q12F510 -oC:\Users\843E~1\AppData\Local\Temp\xcAs2lg.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Ultrasonic-rodent-repeller-on-a-PIC.production.map \
   -E1 -ver=XC8 Compiler --acfsm=1493 -ASTACK=034h-03Fh -pstack=STACK \
@@ -17,7 +17,7 @@ Linker command line:
   -DIDLOC=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=03ffh,reset_wrap=0h,init,end_init,cinit,clrtext \
   -ppowerup=CODE -pfunctab=ENTRY -pstrings=-STRING -k \
-  C:\Users\843E~1\AppData\Local\Temp\xcAsd84.o \
+  C:\Users\843E~1\AppData\Local\Temp\xcAs2lg.o \
   dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.o 
 
 Object code version is 3.11
@@ -27,7 +27,7 @@ Machine type is 12F510
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\843E~1\AppData\Local\Temp\xcAsd84.o
+C:\Users\843E~1\AppData\Local\Temp\xcAs2lg.o
                 end_init                              0        0        2        0       0
                 reset_vec                           3FF      3FF        1      7FE       0
                 config                              FFF      FFF        1        0       4
@@ -35,7 +35,7 @@ dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.o
                 clrtext                              21       21        9        0       0
                 cinit                                 2        2       1F        0       0
                 config                              FFF      FFF        1        0       4
-                maintext                            1AB      1AB       55      356       0
+                maintext                            111      111       EF      222       0
                 cstackBANK0                          1E       1E        1       10       1
                 bssBANK1                             30       30        4       30       1
                 dataBANK0                            1A       1A        4       10       1
@@ -47,7 +47,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   CODE           
                 reset_vec                           3FF      3FF        1         0
-                maintext                            1AB      1AB       55         0
+                maintext                            111      111       EF         0
 
         CLASS   STRCODE        
 
@@ -92,7 +92,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_wrap                     000000  00002E  00002E         0       0  ENTRY       2
                 bssBANK0                       000010  00000F  00001F        10       1  BANK0       1
                 bssBANK1                       000030  000004  000034        30       1  BANK1       1
-                maintext                       0001AB  000055  000200       356       0  CODE        2
+                maintext                       000111  0000EF  000200       222       0  CODE        2
                 reset_vec                      0003FF  000001  000400       7FE       0  CODE        2
 
 
@@ -101,9 +101,9 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            001F-001F              1           1
         BANK1            0034-003F              C           1
-        CODE             002E-01AA            17D           2
+        CODE             002E-0110             E3           2
                          0200-03FE            1FF
-        ENTRY            002E-00FF+00AB         D2           2
+        ENTRY            002E-00FF+0011         D2           2
                          0200-02FF+00FF        100
         IDLOC            0400-0403              4           2
         RAM              001F-001F              1           1
@@ -111,7 +111,7 @@ UNUSED ADDRESS RANGES
         SFR0             0000-0009              A           1
         SFR1             0020-002F             10           1
         STACK            0034-003F              C           1
-        STRCODE          002E-01AA            17D           2
+        STRCODE          002E-0110             E3           2
                          0200-03FE            1FF
         STRING           002E-00FF             D2           2
                          0200-02FF            100
@@ -199,10 +199,10 @@ __pbssBANK1              bssBANK1    0030
 __pcstackBANK0           cstackBANK0 001E
 __pdataBANK0             dataBANK0   001A
 __pidataBANK0            idataBANK0  002A
-__pmaintext              maintext    01AB
+__pmaintext              maintext    0111
 __size_of_main           (abs)       0000
 _clock_out               bssBANK0    0010
-_main                    maintext    01AB
+_main                    maintext    0111
 _x                       bssBANK0    0014
 _y                       dataBANK0   001A
 btemp                    (abs)       000A
@@ -224,9 +224,9 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 newmain.c
-		_main          		CODE           	01AB	0000	85
+		_main          		CODE           	0111	0000	239
 
-newmain.c estimated size: 85
+newmain.c estimated size: 239
 
 shared
 		__initialization		ENTRY          	0002	0000	28
