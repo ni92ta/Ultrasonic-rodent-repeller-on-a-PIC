@@ -38,11 +38,12 @@ void Interrupt(void){
 void main(void) {
    GPIO = 0b00000000;
    TRISGPIO = 0b00000000;
+   ADCON0 &= ~((1<<ANS1) | (1<<ANS0));
    TMR0 = 0;
    //OPTION = 0b10110000;//0bxx0xxxxx Тактирование таймера
    //CM1CON0 = 0b11110000;
   
-    /*   if (clock_out == 0){
+      if (clock_out == 0){
               if (x >= 6){
       t++;
   }
@@ -51,16 +52,16 @@ void main(void) {
   }
      	for(; y < 800; y++){//Частота 43 kHz
          // GPIO = 0b00100000; 
-          GPIO = 0b00010000; 
+          GPIO = 0b00010100; 
 		  // GP5 = 1;
           // GP4 = 0;
           //GPIO = 0b00010000;
-          GPIO = 0b00100000;
+          GPIO = 0b00100100;
            //GP5 = 0;
            //GP4 = 1;
            __delay_us(600);  //12   58  300(13,8kHz)
            //GPIO = 0b00100000; 
-           GPIO = 0b00010000;
+           GPIO = 0b00010100;
            //GP5 = 1;
            //GP4 = 0;
 	    }       
@@ -103,16 +104,20 @@ void main(void) {
     x = 0; 
     clock_out = 0;
     t = 0;
-         }}*/
+         }}
   // __delay_ms(00);
 //==========================================================   
     while(1){
+      //  GPIO = 0b00000100;
+        
        while (clock_out == 0){
       x ++;
-      GPIO = 0b00100000; 
-      GPIO = 0b00010000; 
+      t = 0;
+      p = 0;
+      GPIO = 0b00100100; 
+      GPIO = 0b00010100; 
       __delay_us(100);  //18(13,8kHz) 
-      GPIO = 0b00100000;
+      GPIO = 0b00100100;
        if (x >= 65500) {
             clock_out = 1;
         } 
@@ -120,15 +125,16 @@ void main(void) {
 //---------------------------------------      
        while (clock_out == 1){
       x --;
-      t = 0;
-      GPIO = 0b00100000; 
-      GPIO = 0b00010000; 
+     // t = 0;
+      GPIO = 0b00100100; 
+      GPIO = 0b00010100; 
       __delay_us(150);  //18(13,8kHz) 
-      GPIO = 0b00100000;
-       if (x == 0 && p == 0) {
+      GPIO = 0b00100100;
+       if (x == 0 && (p == 0 || t == 5)) {
             clock_out = 2;
+            
+            if (t == 5) clock_out = 0;
             p = 1;
-            if (p == 5) clock_out = 0;
         } 
         }       
 //---------------------------------------           
@@ -140,8 +146,9 @@ void main(void) {
       GPIO = 0b00100000;
        if (x >= 65500 && (p == 1 || t == 5)) {
             clock_out = 3;
+            
+            if (t == 5) clock_out = 1;
             p = 2;
-            if (p == 5) clock_out = 1;
         } 
         }       
 //---------------------------------------     
@@ -171,7 +178,7 @@ void main(void) {
             if (t == 5) clock_out = 3;
             p = 4;
         } 
-        }      
+        }     
 //---------------------------------------
        while (clock_out == 5){
       x --;
