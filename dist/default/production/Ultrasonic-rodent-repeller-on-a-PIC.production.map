@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.sym \
   --cmf=dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.cmf \
-  -z -Q12F510 -oC:\Users\843E~1\AppData\Local\Temp\xcAsgi4.5 \
+  -z -Q12F510 -oC:\Users\843E~1\AppData\Local\Temp\xcAsbrg.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Ultrasonic-rodent-repeller-on-a-PIC.production.map \
   -E1 -ver=XC8 Compiler --acfsm=1493 -ASTACK=036h-03Fh -pstack=STACK \
@@ -17,7 +17,7 @@ Linker command line:
   -DIDLOC=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=03ffh,reset_wrap=0h,init,end_init,cinit,clrtext \
   -ppowerup=CODE -pfunctab=ENTRY -pstrings=-STRING -k \
-  C:\Users\843E~1\AppData\Local\Temp\xcAsgi4.o \
+  C:\Users\843E~1\AppData\Local\Temp\xcAsbrg.o \
   dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.o 
 
 Object code version is 3.11
@@ -27,17 +27,19 @@ Machine type is 12F510
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\843E~1\AppData\Local\Temp\xcAsgi4.o
+C:\Users\843E~1\AppData\Local\Temp\xcAsbrg.o
                 end_init                              0        0        2        0       0
                 reset_vec                           3FF      3FF        1      7FE       0
                 config                              FFF      FFF        1        0       4
 dist/default/production\Ultrasonic-rodent-repeller-on-a-PIC.production.o
                 clrtext                              22       22        9        0       0
                 cinit                                 2        2       20        0       0
-                maintext_split_2                     B6       B6      14A      16C       0
-                maintext_split_1                    32E      32E       D1      65C       0
+                maintext_split_4                    217      217      1E8      42E       0
+                maintext_split_3                     3A       3A       45       74       0
+                maintext_split_2                     7F       7F       48       FE       0
+                maintext_split_1                     C7       C7       6F      18E       0
                 config                              FFF      FFF        1        0       4
-                maintext                             71       71       45       E2       0
+                maintext                            136      136       CA      26C       0
                 cstackBANK0                          1A       1A        3       10       1
                 dataBANK1                            34       34        2       30       1
                 bssBANK1                             30       30        4       30       1
@@ -51,9 +53,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   CODE           
                 reset_vec                           3FF      3FF        1         0
-                maintext_split_2                     B6       B6      14A         0
-                maintext_split_1                    32E      32E       D1         0
-                maintext                             71       71       45         0
+                maintext_split_4                    217      217      1E8         0
+                maintext_split_3                     3A       3A       45         0
+                maintext_split_2                     7F       7F       48         0
+                maintext_split_1                     C7       C7       6F         0
+                maintext                            136      136       CA         0
 
         CLASS   STRCODE        
 
@@ -100,9 +104,11 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_wrap                     000000  00002F  00002F         0       0  ENTRY       2
                 bssBANK0                       000010  00000F  00001F        10       1  BANK0       1
                 bssBANK1                       000030  000006  000036        30       1  BANK1       1
-                maintext                       000071  000045  0000B6        E2       0  CODE        2
-                maintext_split_2               0000B6  00014A  000200       16C       0  CODE        2
-                maintext_split_1               00032E  0000D1  0003FF       65C       0  CODE        2
+                maintext_split_3               00003A  000045  00007F        74       0  CODE        2
+                maintext_split_2               00007F  000048  0000C7        FE       0  CODE        2
+                maintext_split_1               0000C7  00006F  000136       18E       0  CODE        2
+                maintext                       000136  0000CA  000200       26C       0  CODE        2
+                maintext_split_4               000217  0001E8  0003FF       42E       0  CODE        2
                 reset_vec                      0003FF  000001  000400       7FE       0  CODE        2
 
 
@@ -111,27 +117,27 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            0001F-0001F               1           1
         BANK1            00036-0003F               A           1
-        CODE             0002F-00070              42           2
-                         00200-0032D             12E
-        ENTRY            0002F-00070              42           2
-                         00200-002FF+0002E        100
+        CODE             0002F-00039               B           2
+                         00200-00216              17
+        ENTRY            0002F-00039               B           2
+                         00200-00216              17
         IDLOC            00400-00403               4           2
         RAM              0001F-0001F               1           1
                          00036-0003F               A
         SFR0             00000-00009               A           1
         SFR1             00020-0002F              10           1
         STACK            00036-0003F               A           1
-        STRCODE          0002F-00070              42           2
-                         00200-0032D             12E
-        STRING           0002F-00070              42           2
-                         00200-002FF             100
+        STRCODE          0002F-00039               B           2
+                         00200-00216              17
+        STRING           0002F-00039               B           2
+                         00200-00216              17
 
                                   Symbol Table
 
 _ADCON0                  (abs)            00008
-_ANS0                    (abs)            00046
-_ANS1                    (abs)            00047
+_CM1CON0                 (abs)            00007
 _GPIO                    (abs)            00006
+_OPTION                  (abs)            00000
 _TMR0                    (abs)            00001
 _TRISGPIO                (abs)            00006
 __Habs1                  abs1             00000
@@ -156,6 +162,8 @@ __Hjmp_tab               jmp_tab          00000
 __Hmaintext              maintext         00000
 __Hmaintext_split_1      maintext_split_1 00000
 __Hmaintext_split_2      maintext_split_2 00000
+__Hmaintext_split_3      maintext_split_3 00000
+__Hmaintext_split_4      maintext_split_4 00000
 __Hpowerup               powerup          00000
 __Hram                   ram              00000
 __Hreset_vec             reset_vec        00400
@@ -191,6 +199,8 @@ __Ljmp_tab               jmp_tab          00000
 __Lmaintext              maintext         00000
 __Lmaintext_split_1      maintext_split_1 00000
 __Lmaintext_split_2      maintext_split_2 00000
+__Lmaintext_split_3      maintext_split_3 00000
+__Lmaintext_split_4      maintext_split_4 00000
 __Lpowerup               powerup          00000
 __Lram                   ram              00000
 __Lreset_vec             reset_vec        003FF
@@ -213,7 +223,7 @@ ___sp                    stack            00000
 ___stackhi               (abs)            00000
 ___stacklo               (abs)            00000
 __end_of__initialization cinit            0001F
-__end_of_main            maintext_split_2 00200
+__end_of_main            maintext_split_4 003FF
 __initialization         cinit            00002
 __pbssBANK0              bssBANK0         00010
 __pbssBANK1              bssBANK1         00030
@@ -222,10 +232,10 @@ __pdataBANK0             dataBANK0        0001D
 __pdataBANK1             dataBANK1        00034
 __pidataBANK0            idataBANK0       0002B
 __pidataBANK1            idataBANK1       0002D
-__pmaintext              maintext         00071
+__pmaintext              maintext         00136
 __size_of_main           (abs)            00000
 _clock_out               bssBANK0         00010
-_main                    maintext         00071
+_main                    maintext         00136
 _p                       bssBANK0         00014
 _t                       bssBANK0         00012
 _x                       bssBANK0         00016
@@ -238,8 +248,12 @@ ltemp3                   (abs)            0000C
 pnum$maintext            (abs)            0000B
 pnum$maintext_split_1    (abs)            0000D
 pnum$maintext_split_2    (abs)            0000E
+pnum$maintext_split_3    (abs)            0000F
+pnum$maintext_split_4    (abs)            00010
 psplit$0                 (abs)            B000D
 psplit$1                 (abs)            D000E
+psplit$2                 (abs)            E000F
+psplit$3                 (abs)            F0010
 reset_vec                reset_vec        003FF
 start                    init             00000
 start_initialization     cinit            00002
@@ -254,9 +268,9 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 newmain.c
-		_main          		CODE           	0071	0000	608
+		_main          		CODE           	0136	0000	942
 
-newmain.c estimated size: 608
+newmain.c estimated size: 942
 
 shared
 		__initialization		ENTRY          	0002	0000	29
