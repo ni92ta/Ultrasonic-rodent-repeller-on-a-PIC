@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Tue Jun 04 21:18:27 2024
+                                                                                               Wed Jun 05 20:54:43 2024
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	12F510
@@ -20,1218 +20,1778 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
     14                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
     15                           	psect	maintext_split_1,global,class=CODE,split=1,delta=2
     16                           	psect	maintext_split_2,global,class=CODE,split=1,delta=2
-    17                           	dabs	1,0xA,6
-    18  0000                     
-    19                           ; Version 2.20
-    20                           ; Generated 29/04/2020 GMT
-    21                           ; 
-    22                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    23                           ; All rights reserved.
-    24                           ; 
-    25                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
-      +                          ip").
+    17                           	psect	maintext_split_3,global,class=CODE,split=1,delta=2
+    18                           	psect	maintext_split_4,global,class=CODE,split=1,delta=2
+    19                           	dabs	1,0xA,6
+    20  0000                     
+    21                           ; Version 2.20
+    22                           ; Generated 29/04/2020 GMT
+    23                           ; 
+    24                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
     26                           ; 
-    27                           ; Redistribution and use in source and binary forms, with or without modification, are
-    28                           ; permitted provided that the following conditions are met:
-    29                           ; 
-    30                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    31                           ;        conditions and the following disclaimer.
-    32                           ; 
-    33                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    34                           ;        of conditions and the following disclaimer in the documentation and/or other
-    35                           ;        materials provided with the distribution.
-    36                           ; 
-    37                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution.
+    38                           ; 
+    39                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    38                           ;        software without specific prior written permission.
-    39                           ; 
-    40                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    41                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    40                           ;        software without specific prior written permission.
+    41                           ; 
+    42                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    43                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    42                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    44                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    43                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    44                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    45                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    45                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    46                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    47                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    46                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    48                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    47                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    48                           ; 
-    49                           ; 
-    50                           ; Code-generator required, PIC12F510 Definitions
+    49                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    50                           ; 
     51                           ; 
-    52                           ; SFR Addresses
-    53  0000                     	;# 
-    54  0001                     	;# 
-    55  0002                     	;# 
-    56  0003                     	;# 
-    57  0004                     	;# 
-    58  0005                     	;# 
-    59  0006                     	;# 
-    60  0007                     	;# 
-    61  0008                     	;# 
-    62  0009                     	;# 
-    63                           
-    64                           	psect	idataBANK0
-    65  02B                     __pidataBANK0:
-    66                           
-    67                           ;initializer for _y
-    68  02B  0801               	retlw	1
-    69  02C  0800               	retlw	0
-    70                           
-    71                           	psect	idataBANK1
-    72  02D                     __pidataBANK1:
-    73                           
-    74                           ;initializer for _clock2
-    75  02D  0809               	retlw	9
-    76  02E  0800               	retlw	0
-    77  0001                     _TMR0	set	1
-    78  0008                     _ADCON0	set	8
-    79  0006                     _TRISGPIO	set	6
-    80  0006                     _GPIO	set	6
-    81  0046                     _ANS0	set	70
-    82  0047                     _ANS1	set	71
-    83                           
-    84                           	psect	cinit
-    85  002                     start_initialization:	
-    86                           ; #config settings
-    87                           
-    88  002                     __initialization:
+    52                           ; Code-generator required, PIC12F510 Definitions
+    53                           ; 
+    54                           ; SFR Addresses
+    55  0000                     	;# 
+    56  0001                     	;# 
+    57  0002                     	;# 
+    58  0003                     	;# 
+    59  0004                     	;# 
+    60  0005                     	;# 
+    61  0006                     	;# 
+    62  0007                     	;# 
+    63  0008                     	;# 
+    64  0009                     	;# 
+    65                           
+    66                           	psect	idataBANK0
+    67  02B                     __pidataBANK0:
+    68                           
+    69                           ;initializer for _y
+    70  02B  0801               	retlw	1
+    71  02C  0800               	retlw	0
+    72                           
+    73                           	psect	idataBANK1
+    74  02D                     __pidataBANK1:
+    75                           
+    76                           ;initializer for _clock2
+    77  02D  0809               	retlw	9
+    78  02E  0800               	retlw	0
+    79  0001                     _TMR0	set	1
+    80  0000                     _OPTION	set	0
+    81  0007                     _CM1CON0	set	7
+    82  0008                     _ADCON0	set	8
+    83  0006                     _TRISGPIO	set	6
+    84  0006                     _GPIO	set	6
+    85                           
+    86                           	psect	cinit
+    87  002                     start_initialization:	
+    88                           ; #config settings
     89                           
-    90                           ; Initialize objects allocated to BANK0
-    91  002  04A3  092B  04A3   	fcall	__pidataBANK0	;fetch initializer
-    92  005  003D               	movwf	__pdataBANK0& (0+31)
-    93  006  04A3  092C  04A3   	fcall	__pidataBANK0+1	;fetch initializer
-    94  009  003E               	movwf	(__pdataBANK0+1)& (0+31)
-    95                           
-    96                           ; Initialize objects allocated to BANK1
-    97  00A  05A4               	bsf	4,5	;FSR5=1, select bank1
-    98  00B  04A3  092D  04A3   	fcall	__pidataBANK1	;fetch initializer
-    99  00E  0034               	movwf	__pdataBANK1& (0+31)
-   100  00F  04A3  092E  04A3   	fcall	__pidataBANK1+1	;fetch initializer
-   101  012  0035               	movwf	(__pdataBANK1+1)& (0+31)
-   102                           
-   103                           ; Clear objects allocated to BANK0
-   104  013  0C10               	movlw	__pbssBANK0
-   105  014  0024               	movwf	4
-   106  015  0C1A               	movlw	(__pbssBANK0+10)& (0+255)
-   107  016  04A3  0922  04A3   	fcall	clear_ram0
-   108                           
-   109                           ; Clear objects allocated to BANK1
-   110  019  0C30               	movlw	__pbssBANK1
-   111  01A  0024               	movwf	4
-   112  01B  0C34               	movlw	(__pbssBANK1+4)& (0+255)
-   113  01C  04A3  0922  04A3   	fcall	clear_ram0
-   114  01F                     end_of_initialization:	
-   115                           ;End of C runtime variable initialization code
-   116                           
-   117  01F                     __end_of__initialization:
-   118  01F  0064               	clrf	4
-   119  020  04A3  0A71         	ljmp	_main	;jump to C main() function
-   120                           
-   121                           	psect	bssBANK0
-   122  010                     __pbssBANK0:
-   123  010                     _clock_out:
-   124  010                     	ds	2
-   125  012                     _t:
-   126  012                     	ds	2
-   127  014                     _p:
-   128  014                     	ds	2
-   129  016                     _x:
-   130  016                     	ds	2
-   131  018                     _clock:
-   132  018                     	ds	2
-   133                           
-   134                           	psect	dataBANK0
-   135  01D                     __pdataBANK0:
-   136  01D                     _y:
-   137  01D                     	ds	2
-   138                           
-   139                           	psect	bssBANK1
-   140  030                     __pbssBANK1:
-   141  030                     _clock_out_2:
-   142  030                     	ds	2
-   143  032                     _clock3:
-   144  032                     	ds	2
-   145                           
-   146                           	psect	dataBANK1
-   147  034                     __pdataBANK1:
-   148  034                     _clock2:
-   149  034                     	ds	2
-   150                           
-   151                           	psect	clrtext
-   152  022                     clear_ram0:	
-   153                           ;	Called with FSR containing the base address, and
-   154                           ;	W with the last address+1
-   155                           
-   156  022  0004               	clrwdt	;clear the watchdog before getting into this loop
-   157  023                     clrloop0:
-   158  023  0060               	clrf	0	;clear RAM location pointed to by FSR
-   159  024  02A4               	incf	4,f	;increment pointer
-   160  025  0184               	xorwf	4,w	;XOR with final address
-   161  026  0E1F               	andlw	31	;Test low bits only
-   162  027  0643               	btfsc	3,2	;have we reached the end yet?
-   163  028  0800               	retlw	0	;all done for this memory range, return
-   164  029  0184               	xorwf	4,w	;XOR again to restore value
-   165  02A  0A23               	goto	clrloop0	;do the next byte
-   166                           
-   167                           	psect	cstackBANK0
-   168  01A                     __pcstackBANK0:
-   169  01A                     ?_main:
-   170  01A                     ??_main:	
-   171                           ; 1 bytes @ 0x0
-   172                           
-   173                           
-   174                           ; 1 bytes @ 0x0
-   175  01A                     	ds	3
-   176                           
-   177                           	psect	maintext
-   178  071                     __pmaintext:	
-   179 ;;
-   180 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+    90  002                     __initialization:
+    91                           
+    92                           ; Initialize objects allocated to BANK0
+    93  002  04A3  092B  04A3   	fcall	__pidataBANK0	;fetch initializer
+    94  005  003D               	movwf	__pdataBANK0& (0+31)
+    95  006  04A3  092C  04A3   	fcall	__pidataBANK0+1	;fetch initializer
+    96  009  003E               	movwf	(__pdataBANK0+1)& (0+31)
+    97                           
+    98                           ; Initialize objects allocated to BANK1
+    99  00A  05A4               	bsf	4,5	;FSR5=1, select bank1
+   100  00B  04A3  092D  04A3   	fcall	__pidataBANK1	;fetch initializer
+   101  00E  0034               	movwf	__pdataBANK1& (0+31)
+   102  00F  04A3  092E  04A3   	fcall	__pidataBANK1+1	;fetch initializer
+   103  012  0035               	movwf	(__pdataBANK1+1)& (0+31)
+   104                           
+   105                           ; Clear objects allocated to BANK0
+   106  013  0C10               	movlw	__pbssBANK0
+   107  014  0024               	movwf	4
+   108  015  0C1A               	movlw	(__pbssBANK0+10)& (0+255)
+   109  016  04A3  0922  04A3   	fcall	clear_ram0
+   110                           
+   111                           ; Clear objects allocated to BANK1
+   112  019  0C30               	movlw	__pbssBANK1
+   113  01A  0024               	movwf	4
+   114  01B  0C34               	movlw	(__pbssBANK1+4)& (0+255)
+   115  01C  04A3  0922  04A3   	fcall	clear_ram0
+   116  01F                     end_of_initialization:	
+   117                           ;End of C runtime variable initialization code
+   118                           
+   119  01F                     __end_of__initialization:
+   120  01F  0064               	clrf	4
+   121  020  04A3  0B36         	ljmp	_main	;jump to C main() function
+   122                           
+   123                           	psect	bssBANK0
+   124  010                     __pbssBANK0:
+   125  010                     _clock_out:
+   126  010                     	ds	2
+   127  012                     _t:
+   128  012                     	ds	2
+   129  014                     _p:
+   130  014                     	ds	2
+   131  016                     _x:
+   132  016                     	ds	2
+   133  018                     _clock:
+   134  018                     	ds	2
+   135                           
+   136                           	psect	dataBANK0
+   137  01D                     __pdataBANK0:
+   138  01D                     _y:
+   139  01D                     	ds	2
+   140                           
+   141                           	psect	bssBANK1
+   142  030                     __pbssBANK1:
+   143  030                     _clock_out_2:
+   144  030                     	ds	2
+   145  032                     _clock3:
+   146  032                     	ds	2
+   147                           
+   148                           	psect	dataBANK1
+   149  034                     __pdataBANK1:
+   150  034                     _clock2:
+   151  034                     	ds	2
+   152                           
+   153                           	psect	clrtext
+   154  022                     clear_ram0:	
+   155                           ;	Called with FSR containing the base address, and
+   156                           ;	W with the last address+1
+   157                           
+   158  022  0004               	clrwdt	;clear the watchdog before getting into this loop
+   159  023                     clrloop0:
+   160  023  0060               	clrf	0	;clear RAM location pointed to by FSR
+   161  024  02A4               	incf	4,f	;increment pointer
+   162  025  0184               	xorwf	4,w	;XOR with final address
+   163  026  0E1F               	andlw	31	;Test low bits only
+   164  027  0643               	btfsc	3,2	;have we reached the end yet?
+   165  028  0800               	retlw	0	;all done for this memory range, return
+   166  029  0184               	xorwf	4,w	;XOR again to restore value
+   167  02A  0A23               	goto	clrloop0	;do the next byte
+   168                           
+   169                           	psect	cstackBANK0
+   170  01A                     __pcstackBANK0:
+   171  01A                     ?_main:
+   172  01A                     ??_main:	
+   173                           ; 1 bytes @ 0x0
+   174                           
+   175                           
+   176                           ; 1 bytes @ 0x0
+   177  01A                     	ds	3
+   178                           
+   179                           	psect	maintext
+   180  136                     __pmaintext:	
    181 ;;
-   182 ;; *************** function _main *****************
-   183 ;; Defined at:
-   184 ;;		line 38 in file "newmain.c"
-   185 ;; Parameters:    Size  Location     Type
-   186 ;;		None
-   187 ;; Auto vars:     Size  Location     Type
+   182 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   183 ;;
+   184 ;; *************** function _main *****************
+   185 ;; Defined at:
+   186 ;;		line 38 in file "newmain.c"
+   187 ;; Parameters:    Size  Location     Type
    188 ;;		None
-   189 ;; Return value:  Size  Location     Type
-   190 ;;                  1   42[None  ] void 
-   191 ;; Registers used:
-   192 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+0, btemp+1, btemp+3, btemp+4, btemp+5
-   193 ;; Tracked objects:
-   194 ;;		On entry : B00/0
-   195 ;;		On exit  : 0/0
-   196 ;;		Unchanged: 0/0
-   197 ;; Data sizes:     COMMON   BANK0   BANK1
-   198 ;;      Params:         0       0       0
-   199 ;;      Locals:         0       0       0
-   200 ;;      Temps:          0       3       0
-   201 ;;      Totals:         0       3       0
-   202 ;;Total ram usage:        3 bytes
-   203 ;; This function calls:
-   204 ;;		Nothing
-   205 ;; This function is called by:
-   206 ;;		Startup code after reset
-   207 ;; This function uses a non-reentrant model
-   208 ;;
-   209                           
-   210                           
-   211                           ;psect for function _main
-   212  071                     _main:
-   213  071                     l796:	
-   214                           ;incstack = 0
-   215                           ; Regs used in _main: [wreg-fsr0h+status,2-btemp+1+btemp+3-btemp+5]
-   216                           
-   217                           
-   218                           ;newmain.c: 39:    GPIO = 0b00000000;
-   219  071  04A4               	bcf	4,5	;FSR5=0, select bank0
-   220  072  0066               	clrf	6	;volatile
-   221  073                     l798:
-   222                           
-   223                           ;newmain.c: 40:    TRISGPIO = 0b00000000;
-   224  073  0C00               	movlw	0
-   225  074  0006               	tris	6
-   226  075                     l800:
-   227                           
-   228                           ;newmain.c: 41:    ADCON0 &= ~((1<<ANS1) | (1<<ANS0));
-   229  075  0C00               	movlw	0
-   230  076  06C8               	btfsc	8,6	;volatile
-   231  077  0C01               	movlw	1
-   232  078  002F               	movwf	btemp+5
-   233  079  02AF               	incf	btemp+5,f
-   234  07A  0C01               	movlw	1
-   235  07B  002E               	movwf	btemp+4
-   236  07C  0A7F               	goto	u374
-   237  07D                     u375:
-   238  07D  0403               	clrc
-   239  07E  036E               	rlf	btemp+4,f
-   240  07F                     u374:
-   241  07F  02EF               	decfsz	btemp+5,f
-   242  080  0A7D               	goto	u375
-   243  081  020E               	movf	btemp+4,w
-   244  082  002F               	movwf	btemp+5
-   245  083  0C00               	movlw	0
-   246  084  04A4               	bcf	4,5	;FSR5=0, select bank0
-   247  085  06E8               	btfsc	8,7	;volatile
-   248  086  0C01               	movlw	1
-   249  087  002E               	movwf	btemp+4
-   250  088  02AE               	incf	btemp+4,f
-   251  089  0C01               	movlw	1
-   252  08A  002D               	movwf	btemp+3
-   253  08B  0A8E               	goto	u384
-   254  08C                     u385:
-   255  08C  0403               	clrc
-   256  08D  036D               	rlf	btemp+3,f
-   257  08E                     u384:
-   258  08E  02EE               	decfsz	btemp+4,f
-   259  08F  0A8C               	goto	u385
-   260  090  020D               	movf	btemp+3,w
-   261  091  010F               	iorwf	btemp+5,w
-   262  092  0FFF               	xorlw	255
-   263  093  002F               	movwf	btemp+5
-   264  094  020F               	movf	btemp+5,w
-   265  095  04A4               	bcf	4,5	;FSR5=0, select bank0
-   266  096  0168               	andwf	8,f	;volatile
-   267  097                     l802:
-   268                           
-   269                           ;newmain.c: 42:    TMR0 = 0;
-   270  097  0061               	clrf	1	;volatile
-   271  098                     l804:
+   189 ;; Auto vars:     Size  Location     Type
+   190 ;;		None
+   191 ;; Return value:  Size  Location     Type
+   192 ;;                  1   42[None  ] void 
+   193 ;; Registers used:
+   194 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+0, btemp+1
+   195 ;; Tracked objects:
+   196 ;;		On entry : B00/0
+   197 ;;		On exit  : 0/0
+   198 ;;		Unchanged: 0/0
+   199 ;; Data sizes:     COMMON   BANK0   BANK1
+   200 ;;      Params:         0       0       0
+   201 ;;      Locals:         0       0       0
+   202 ;;      Temps:          0       3       0
+   203 ;;      Totals:         0       3       0
+   204 ;;Total ram usage:        3 bytes
+   205 ;; This function calls:
+   206 ;;		Nothing
+   207 ;; This function is called by:
+   208 ;;		Startup code after reset
+   209 ;; This function uses a non-reentrant model
+   210 ;;
+   211                           
+   212                           
+   213                           ;psect for function _main
+   214  136                     _main:
+   215  136                     l955:	
+   216                           ;incstack = 0
+   217                           ; Regs used in _main: [wreg-fsr0h+status,2-btemp+1]
+   218                           
+   219                           
+   220                           ;newmain.c: 39:    GPIO = 0b00000000;
+   221  136  04A4               	bcf	4,5	;FSR5=0, select bank0
+   222  137  0066               	clrf	6	;volatile
+   223  138                     l957:
+   224                           
+   225                           ;newmain.c: 40:    TRISGPIO = 0b00000000;
+   226  138  0C00               	movlw	0
+   227  139  0006               	tris	6
+   228  13A                     l959:
+   229                           
+   230                           ;newmain.c: 42:    ADCON0 = 0b00000000;
+   231  13A  0068               	clrf	8	;volatile
+   232  13B                     l961:
+   233                           
+   234                           ;newmain.c: 43:    CM1CON0 = 0b01011001;
+   235  13B  0C59               	movlw	89
+   236  13C  0027               	movwf	7	;volatile
+   237  13D                     l963:
+   238                           
+   239                           ;newmain.c: 44:    OPTION = 0b10000000;
+   240  13D  0C80               	movlw	128
+   241  13E  0002               	option
+   242  13F                     l965:
+   243                           
+   244                           ;newmain.c: 45:    TMR0 = 0;
+   245  13F  0061               	clrf	1	;volatile
+   246  140                     l967:
+   247                           
+   248                           ;newmain.c: 49:       if (clock_out == 0){
+   249  140  0210               	movf	_clock_out,w
+   250  141  0111               	iorwf	_clock_out+1,w
+   251  142  0743               	btfss	3,2
+   252  143  0B45               	goto	u601
+   253  144  0B46               	goto	u600
+   254  145                     u601:
+   255  145  0B97               	goto	l987
+   256  146                     u600:
+   257  146                     l969:
+   258                           
+   259                           ;newmain.c: 50:               if (x >= 6){
+   260  146  0C00               	movlw	0
+   261  147  0097               	subwf	_x+1,w
+   262  148  0C06               	movlw	6
+   263  149  0643               	skipnz
+   264  14A  0096               	subwf	_x,w
+   265  14B  0703               	skipc
+   266  14C  0B4E               	goto	u611
+   267  14D  0B4F               	goto	u610
+   268  14E                     u611:
+   269  14E  0B59               	goto	l973
+   270  14F                     u610:
+   271  14F                     l971:
    272                           
-   273                           ;newmain.c: 46:       if (clock_out == 0){
-   274  098  0210               	movf	_clock_out,w
-   275  099  0111               	iorwf	_clock_out+1,w
-   276  09A  0743               	btfss	3,2
-   277  09B  0A9D               	goto	u391
-   278  09C  0A9F               	goto	u390
-   279  09D                     u391:
-   280  09D  05A3  0B69         	goto	l824
-   281  09F                     u390:
-   282  09F                     l806:
+   273                           ;newmain.c: 51:       t++;
+   274  14F  0C01               	movlw	1
+   275  150  002A               	movwf	btemp
+   276  151  006B               	clrf	btemp+1
+   277  152  020A               	movf	wtemp0,w
+   278  153  01F2               	addwf	_t,f
+   279  154  0603               	skipnc
+   280  155  02B3               	incf	_t+1,f
+   281  156  020B               	movf	wtemp0+1,w
+   282  157  01F3               	addwf	_t+1,f
    283                           
-   284                           ;newmain.c: 47:               if (x >= 6){
-   285  09F  0C00               	movlw	0
-   286  0A0  0097               	subwf	_x+1,w
-   287  0A1  0C06               	movlw	6
-   288  0A2  0643               	skipnz
-   289  0A3  0096               	subwf	_x,w
-   290  0A4  0703               	skipc
-   291  0A5  0AA7               	goto	u401
-   292  0A6  0AA8               	goto	u400
-   293  0A7                     u401:
-   294  0A7  0AB3               	goto	l810
-   295  0A8                     u400:
-   296  0A8                     l808:
+   284                           ;newmain.c: 52:   }
+   285  158  0B74               	goto	l979
+   286  159                     l973:
+   287                           
+   288                           ;newmain.c: 54:       y = 0;
+   289  159  007D               	clrf	_y
+   290  15A  007E               	clrf	_y+1
+   291  15B  0B74               	goto	l979
+   292  15C                     l975:
+   293                           
+   294                           ;newmain.c: 58:           GPIO = 0b00010100;
+   295  15C  0C14               	movlw	20
+   296  15D  0026               	movwf	6	;volatile
    297                           
-   298                           ;newmain.c: 48:       t++;
-   299  0A8  0C01               	movlw	1
-   300  0A9  002A               	movwf	btemp
-   301  0AA  006B               	clrf	btemp+1
-   302  0AB  020A               	movf	wtemp0,w
-   303  0AC  01F2               	addwf	_t,f
-   304  0AD  0603               	skipnc
-   305  0AE  02B3               	incf	_t+1,f
-   306  0AF  020B               	movf	wtemp0+1,w
-   307  0B0  01F3               	addwf	_t+1,f
-   308  0B1                     L1:
-   309                           
-   310                           ;newmain.c: 49:   }
-   311  0B1  05A3  0B46         	goto	l816
-   312  0B3                     l810:
-   313                           
-   314                           ;newmain.c: 51:       y = 0;
-   315  0B3  007D               	clrf	_y
-   316  0B4  007E               	clrf	_y+1
-   317  0B5  0AB1               	goto	L1
+   298                           ;newmain.c: 62:           GPIO = 0b00100100;
+   299  15E  0C24               	movlw	36
+   300  15F  0026               	movwf	6	;volatile
+   301                           
+   302                           ;newmain.c: 65:            _delay((unsigned long)((600)*(8000000/4000000.0)));
+   303  160  0CEF               	movlw	239
+   304  161  04A4               	bcf	4,5	;FSR5=0, select bank0
+   305  162  003A               	movwf	??_main
+   306  163                     u1187:
+   307  163  0B64               	nop2
+   308  164  02FA               	decfsz	??_main,f
+   309  165  0B63               	goto	u1187
+   310  166  0B67               	nop2
+   311  167  0000               	nop
+   312                           
+   313                           ;newmain.c: 67:            GPIO = 0b00010100;
+   314  168  0C14               	movlw	20
+   315  169  04A4               	bcf	4,5	;FSR5=0, select bank0
+   316  16A  0026               	movwf	6	;volatile
+   317  16B                     l977:
    318                           
-   319                           	psect	config
-   320                           
-   321                           ;Config register CONFIG @ 0xFFF
-   322                           ;	Oscillator Select
-   323                           ;	OSC = IntRC, INTOSC with 1.125 ms DRT
-   324                           ;	Watchdog Timer Enable bit
-   325                           ;	WDT = OFF, WDT disabled
-   326                           ;	Code Protect
-   327                           ;	CP = OFF, Code protection off
-   328                           ;	Master Clear Enable bit
-   329                           ;	MCLRE = ON, GP3/MCLR Functions as MCLR
-   330                           ;	Internal Oscillator Frequency Select bit
-   331                           ;	IOSCFS = ON, 8 MHz INTOSC Speed
-   332  0FFF                     	org	4095
-   333  0FFF  0FFA               	dw	4090
-   334                           
-   335                           	psect	maintext_split_1
-   336  32E                     l812:
-   337                           
-   338                           ;newmain.c: 55:           GPIO = 0b00010100;
-   339  32E  0C14               	movlw	20
-   340  32F  0026               	movwf	6	;volatile
-   341                           
-   342                           ;newmain.c: 59:           GPIO = 0b00100100;
-   343  330  0C24               	movlw	36
-   344  331  0026               	movwf	6	;volatile
-   345                           
-   346                           ;newmain.c: 62:            _delay((unsigned long)((600)*(8000000/4000000.0)));
-   347  332  0CEF               	movlw	239
-   348  333  04A4               	bcf	4,5	;FSR5=0, select bank0
-   349  334  003A               	movwf	??_main
-   350  335                     u727:
-   351  335  0B36               	nop2
-   352  336  02FA               	decfsz	??_main,f
-   353  337  0B35               	goto	u727
-   354  338  0B39               	nop2
-   355  339  0000               	nop
-   356                           
-   357                           ;newmain.c: 64:            GPIO = 0b00010100;
-   358  33A  0C14               	movlw	20
-   359  33B  04A4               	bcf	4,5	;FSR5=0, select bank0
-   360  33C  0026               	movwf	6	;volatile
-   361  33D                     l814:
-   362                           
-   363                           ;newmain.c: 67:      }
-   364  33D  0C01               	movlw	1
-   365  33E  002A               	movwf	btemp
-   366  33F  006B               	clrf	btemp+1
-   367  340  020A               	movf	wtemp0,w
-   368  341  01FD               	addwf	_y,f
-   369  342  0603               	skipnc
-   370  343  02BE               	incf	_y+1,f
-   371  344  020B               	movf	wtemp0+1,w
-   372  345  01FE               	addwf	_y+1,f
-   373  346                     l816:
-   374  346  0C03               	movlw	3
-   375  347  009E               	subwf	_y+1,w
-   376  348  0C20               	movlw	32
-   377  349  0643               	skipnz
-   378  34A  009D               	subwf	_y,w
-   379  34B  0703               	skipc
-   380  34C  0B4E               	goto	u411
-   381  34D  0B4F               	goto	u410
-   382  34E                     u411:
-   383  34E  0B2E               	goto	l812
-   384  34F                     u410:
-   385  34F                     l818:
-   386                           
-   387                           ;newmain.c: 68:   x ++;
-   388  34F  0C01               	movlw	1
-   389  350  002A               	movwf	btemp
-   390  351  006B               	clrf	btemp+1
-   391  352  020A               	movf	wtemp0,w
-   392  353  01F6               	addwf	_x,f
-   393  354  0603               	skipnc
-   394  355  02B7               	incf	_x+1,f
-   395  356  020B               	movf	wtemp0+1,w
-   396  357  01F7               	addwf	_x+1,f
-   397  358                     l820:
-   398                           
-   399                           ;newmain.c: 70:          if (t >= 6){
-   400  358  0C00               	movlw	0
-   401  359  0093               	subwf	_t+1,w
-   402  35A  0C06               	movlw	6
-   403  35B  0643               	skipnz
-   404  35C  0092               	subwf	_t,w
-   405  35D  0703               	skipc
-   406  35E  0B60               	goto	u421
-   407  35F  0B61               	goto	u420
-   408  360                     u421:
-   409  360  0B69               	goto	l824
-   410  361                     u420:
-   411  361                     l822:
-   412                           
-   413                           ;newmain.c: 71:     y = 0;
-   414  361  007D               	clrf	_y
-   415  362  007E               	clrf	_y+1
-   416                           
-   417                           ;newmain.c: 72:     x = 0;
-   418  363  0076               	clrf	_x
-   419  364  0077               	clrf	_x+1
-   420                           
-   421                           ;newmain.c: 73:     clock_out = 0;
-   422  365  0070               	clrf	_clock_out
-   423  366  0071               	clrf	_clock_out+1
-   424                           
-   425                           ;newmain.c: 74:     t = 0;
-   426  367  0072               	clrf	_t
-   427  368  0073               	clrf	_t+1
-   428  369                     l824:
+   319                           ;newmain.c: 70:      }
+   320  16B  0C01               	movlw	1
+   321  16C  002A               	movwf	btemp
+   322  16D  006B               	clrf	btemp+1
+   323  16E  020A               	movf	wtemp0,w
+   324  16F  01FD               	addwf	_y,f
+   325  170  0603               	skipnc
+   326  171  02BE               	incf	_y+1,f
+   327  172  020B               	movf	wtemp0+1,w
+   328  173  01FE               	addwf	_y+1,f
+   329  174                     l979:
+   330  174  0C03               	movlw	3
+   331  175  009E               	subwf	_y+1,w
+   332  176  0C20               	movlw	32
+   333  177  0643               	skipnz
+   334  178  009D               	subwf	_y,w
+   335  179  0703               	skipc
+   336  17A  0B7C               	goto	u621
+   337  17B  0B7D               	goto	u620
+   338  17C                     u621:
+   339  17C  0B5C               	goto	l975
+   340  17D                     u620:
+   341  17D                     l981:
+   342                           
+   343                           ;newmain.c: 71:   x ++;
+   344  17D  0C01               	movlw	1
+   345  17E  002A               	movwf	btemp
+   346  17F  006B               	clrf	btemp+1
+   347  180  020A               	movf	wtemp0,w
+   348  181  01F6               	addwf	_x,f
+   349  182  0603               	skipnc
+   350  183  02B7               	incf	_x+1,f
+   351  184  020B               	movf	wtemp0+1,w
+   352  185  01F7               	addwf	_x+1,f
+   353  186                     l983:
+   354                           
+   355                           ;newmain.c: 73:          if (t >= 6){
+   356  186  0C00               	movlw	0
+   357  187  0093               	subwf	_t+1,w
+   358  188  0C06               	movlw	6
+   359  189  0643               	skipnz
+   360  18A  0092               	subwf	_t,w
+   361  18B  0703               	skipc
+   362  18C  0B8E               	goto	u631
+   363  18D  0B8F               	goto	u630
+   364  18E                     u631:
+   365  18E  0B97               	goto	l987
+   366  18F                     u630:
+   367  18F                     l985:
+   368                           
+   369                           ;newmain.c: 74:     y = 0;
+   370  18F  007D               	clrf	_y
+   371  190  007E               	clrf	_y+1
+   372                           
+   373                           ;newmain.c: 75:     x = 0;
+   374  191  0076               	clrf	_x
+   375  192  0077               	clrf	_x+1
+   376                           
+   377                           ;newmain.c: 76:     clock_out = 0;
+   378  193  0070               	clrf	_clock_out
+   379  194  0071               	clrf	_clock_out+1
+   380                           
+   381                           ;newmain.c: 77:     t = 0;
+   382  195  0072               	clrf	_t
+   383  196  0073               	clrf	_t+1
+   384  197                     l987:
+   385                           
+   386                           ;newmain.c: 79:    _delay((unsigned long)((500)*(8000000/4000.0)));
+   387  197  0C06               	movlw	6
+   388  198  04A4               	bcf	4,5	;FSR5=0, select bank0
+   389  199  003C               	movwf	??_main+2
+   390  19A  0C13               	movlw	19
+   391  19B  003B               	movwf	??_main+1
+   392  19C  0CAD               	movlw	173
+   393  19D  003A               	movwf	??_main
+   394  19E                     u1197:
+   395  19E  02FA               	decfsz	??_main,f
+   396  19F  0B9E               	goto	u1197
+   397  1A0  02FB               	decfsz	??_main+1,f
+   398  1A1  0B9E               	goto	u1197
+   399  1A2  02FC               	decfsz	??_main+2,f
+   400  1A3  0B9E               	goto	u1197
+   401  1A4  0000               	nop
+   402  1A5                     l989:
+   403                           
+   404                           ;newmain.c: 81:           if (clock_out == 0){
+   405  1A5  04A4               	bcf	4,5	;FSR5=0, select bank0
+   406  1A6  0210               	movf	_clock_out,w
+   407  1A7  0111               	iorwf	_clock_out+1,w
+   408  1A8  0743               	btfss	3,2
+   409  1A9  0BAB               	goto	u641
+   410  1AA  0BAD               	goto	u640
+   411  1AB                     u641:
+   412  1AB  04A3  0AED         	goto	l1027
+   413  1AD                     u640:
+   414  1AD                     l991:
+   415                           
+   416                           ;newmain.c: 82:               if (x >= 6){
+   417  1AD  0C00               	movlw	0
+   418  1AE  0097               	subwf	_x+1,w
+   419  1AF  0C06               	movlw	6
+   420  1B0  0643               	skipnz
+   421  1B1  0096               	subwf	_x,w
+   422  1B2  0703               	skipc
+   423  1B3  0BB5               	goto	u651
+   424  1B4  0BB6               	goto	u650
+   425  1B5                     u651:
+   426  1B5  0BC0               	goto	l995
+   427  1B6                     u650:
+   428  1B6                     l993:
    429                           
-   430                           ;newmain.c: 76:    _delay((unsigned long)((500)*(8000000/4000.0)));
-   431  369  0C06               	movlw	6
-   432  36A  04A4               	bcf	4,5	;FSR5=0, select bank0
-   433  36B  003C               	movwf	??_main+2
-   434  36C  0C13               	movlw	19
-   435  36D  003B               	movwf	??_main+1
-   436  36E  0CAD               	movlw	173
-   437  36F  003A               	movwf	??_main
-   438  370                     u737:
-   439  370  02FA               	decfsz	??_main,f
-   440  371  0B70               	goto	u737
-   441  372  02FB               	decfsz	??_main+1,f
-   442  373  0B70               	goto	u737
-   443  374  02FC               	decfsz	??_main+2,f
-   444  375  0B70               	goto	u737
-   445  376  0000               	nop
-   446  377                     l826:
-   447                           
-   448                           ;newmain.c: 78:           if (clock_out == 0){
-   449  377  04A4               	bcf	4,5	;FSR5=0, select bank0
-   450  378  0210               	movf	_clock_out,w
-   451  379  0111               	iorwf	_clock_out+1,w
-   452  37A  0743               	btfss	3,2
-   453  37B  0B7D               	goto	u431
-   454  37C  0B7E               	goto	u430
-   455  37D                     u431:
-   456  37D  0BF7               	goto	l864
-   457  37E                     u430:
-   458  37E                     l828:
-   459                           
-   460                           ;newmain.c: 79:               if (x >= 6){
-   461  37E  0C00               	movlw	0
-   462  37F  0097               	subwf	_x+1,w
-   463  380  0C06               	movlw	6
-   464  381  0643               	skipnz
-   465  382  0096               	subwf	_x,w
-   466  383  0703               	skipc
-   467  384  0B86               	goto	u441
-   468  385  0B87               	goto	u440
-   469  386                     u441:
-   470  386  0B91               	goto	l832
-   471  387                     u440:
-   472  387                     l830:
-   473                           
-   474                           ;newmain.c: 80:       t++;
-   475  387  0C01               	movlw	1
-   476  388  002A               	movwf	btemp
-   477  389  006B               	clrf	btemp+1
-   478  38A  020A               	movf	wtemp0,w
-   479  38B  01F2               	addwf	_t,f
-   480  38C  0603               	skipnc
-   481  38D  02B3               	incf	_t+1,f
-   482  38E  020B               	movf	wtemp0+1,w
-   483  38F  01F3               	addwf	_t+1,f
-   484                           
-   485                           ;newmain.c: 81:   }
-   486  390  0BAC               	goto	l838
-   487  391                     l832:
-   488                           
-   489                           ;newmain.c: 83:       y = 0;
-   490  391  007D               	clrf	_y
-   491  392  007E               	clrf	_y+1
-   492  393  0BAC               	goto	l838
-   493  394                     l834:
-   494                           
-   495                           ;newmain.c: 87:           GPIO = 0b00010000;
-   496  394  0C10               	movlw	16
-   497  395  0026               	movwf	6	;volatile
-   498                           
-   499                           ;newmain.c: 91:           GPIO = 0b00100000;
-   500  396  0C20               	movlw	32
-   501  397  0026               	movwf	6	;volatile
-   502                           
-   503                           ;newmain.c: 94:            _delay((unsigned long)((600)*(8000000/4000000.0)));
-   504  398  0CEF               	movlw	239
-   505  399  04A4               	bcf	4,5	;FSR5=0, select bank0
-   506  39A  003A               	movwf	??_main
-   507  39B                     u747:
-   508  39B  0B9C               	nop2
-   509  39C  02FA               	decfsz	??_main,f
-   510  39D  0B9B               	goto	u747
-   511  39E  0B9F               	nop2
-   512  39F  0000               	nop
-   513                           
-   514                           ;newmain.c: 96:            GPIO = 0b00010000;
-   515  3A0  0C10               	movlw	16
-   516  3A1  04A4               	bcf	4,5	;FSR5=0, select bank0
-   517  3A2  0026               	movwf	6	;volatile
-   518  3A3                     l836:
-   519                           
-   520                           ;newmain.c: 99:      }
-   521  3A3  0C01               	movlw	1
-   522  3A4  002A               	movwf	btemp
-   523  3A5  006B               	clrf	btemp+1
-   524  3A6  020A               	movf	wtemp0,w
-   525  3A7  01FD               	addwf	_y,f
-   526  3A8  0603               	skipnc
-   527  3A9  02BE               	incf	_y+1,f
-   528  3AA  020B               	movf	wtemp0+1,w
-   529  3AB  01FE               	addwf	_y+1,f
-   530  3AC                     l838:
-   531  3AC  0C03               	movlw	3
-   532  3AD  009E               	subwf	_y+1,w
-   533  3AE  0C20               	movlw	32
-   534  3AF  0643               	skipnz
-   535  3B0  009D               	subwf	_y,w
-   536  3B1  0703               	skipc
-   537  3B2  0BB4               	goto	u451
-   538  3B3  0BB5               	goto	u450
-   539  3B4                     u451:
-   540  3B4  0B94               	goto	l834
-   541  3B5                     u450:
-   542  3B5                     l840:
-   543                           
-   544                           ;newmain.c: 100:   x ++;
-   545  3B5  0C01               	movlw	1
-   546  3B6  002A               	movwf	btemp
-   547  3B7  006B               	clrf	btemp+1
-   548  3B8  020A               	movf	wtemp0,w
-   549  3B9  01F6               	addwf	_x,f
-   550  3BA  0603               	skipnc
-   551  3BB  02B7               	incf	_x+1,f
-   552  3BC  020B               	movf	wtemp0+1,w
-   553  3BD  01F7               	addwf	_x+1,f
-   554  3BE                     l842:
-   555                           
-   556                           ;newmain.c: 102:          if (t >= 6){
-   557  3BE  0C00               	movlw	0
-   558  3BF  0093               	subwf	_t+1,w
-   559  3C0  0C06               	movlw	6
-   560  3C1  0643               	skipnz
-   561  3C2  0092               	subwf	_t,w
-   562  3C3  0703               	skipc
-   563  3C4  0BC6               	goto	u461
-   564  3C5  0BC7               	goto	u460
-   565  3C6                     u461:
-   566  3C6  0BD0               	goto	l57
-   567  3C7                     u460:
-   568  3C7                     l844:
-   569                           
-   570                           ;newmain.c: 103:     y = 0;
-   571  3C7  007D               	clrf	_y
-   572  3C8  007E               	clrf	_y+1
-   573                           
-   574                           ;newmain.c: 104:     x = 0;
-   575  3C9  0076               	clrf	_x
-   576  3CA  0077               	clrf	_x+1
-   577                           
-   578                           ;newmain.c: 105:     clock_out = 0;
-   579  3CB  0070               	clrf	_clock_out
-   580  3CC  0071               	clrf	_clock_out+1
-   581                           
-   582                           ;newmain.c: 106:     t = 0;
-   583  3CD  0072               	clrf	_t
-   584  3CE  0073               	clrf	_t+1
-   585  3CF  0BF7               	goto	l864
-   586  3D0                     l57:	
-   587                           ;newmain.c: 110:     while(1){
-   588                           
+   430                           ;newmain.c: 83:       t++;
+   431  1B6  0C01               	movlw	1
+   432  1B7  002A               	movwf	btemp
+   433  1B8  006B               	clrf	btemp+1
+   434  1B9  020A               	movf	wtemp0,w
+   435  1BA  01F2               	addwf	_t,f
+   436  1BB  0603               	skipnc
+   437  1BC  02B3               	incf	_t+1,f
+   438  1BD  020B               	movf	wtemp0+1,w
+   439  1BE  01F3               	addwf	_t+1,f
+   440                           
+   441                           ;newmain.c: 84:   }
+   442  1BF  0BDB               	goto	l1001
+   443  1C0                     l995:
+   444                           
+   445                           ;newmain.c: 86:       y = 0;
+   446  1C0  007D               	clrf	_y
+   447  1C1  007E               	clrf	_y+1
+   448  1C2  0BDB               	goto	l1001
+   449  1C3                     l997:
+   450                           
+   451                           ;newmain.c: 90:           GPIO = 0b00010000;
+   452  1C3  0C10               	movlw	16
+   453  1C4  0026               	movwf	6	;volatile
+   454                           
+   455                           ;newmain.c: 94:           GPIO = 0b00100000;
+   456  1C5  0C20               	movlw	32
+   457  1C6  0026               	movwf	6	;volatile
+   458                           
+   459                           ;newmain.c: 97:            _delay((unsigned long)((600)*(8000000/4000000.0)));
+   460  1C7  0CEF               	movlw	239
+   461  1C8  04A4               	bcf	4,5	;FSR5=0, select bank0
+   462  1C9  003A               	movwf	??_main
+   463  1CA                     u1207:
+   464  1CA  0BCB               	nop2
+   465  1CB  02FA               	decfsz	??_main,f
+   466  1CC  0BCA               	goto	u1207
+   467  1CD  0BCE               	nop2
+   468  1CE  0000               	nop
+   469                           
+   470                           ;newmain.c: 99:            GPIO = 0b00010000;
+   471  1CF  0C10               	movlw	16
+   472  1D0  04A4               	bcf	4,5	;FSR5=0, select bank0
+   473  1D1  0026               	movwf	6	;volatile
+   474  1D2                     l999:
+   475                           
+   476                           ;newmain.c: 102:      }
+   477  1D2  0C01               	movlw	1
+   478  1D3  002A               	movwf	btemp
+   479  1D4  006B               	clrf	btemp+1
+   480  1D5  020A               	movf	wtemp0,w
+   481  1D6  01FD               	addwf	_y,f
+   482  1D7  0603               	skipnc
+   483  1D8  02BE               	incf	_y+1,f
+   484  1D9  020B               	movf	wtemp0+1,w
+   485  1DA  01FE               	addwf	_y+1,f
+   486  1DB                     l1001:
+   487  1DB  0C03               	movlw	3
+   488  1DC  009E               	subwf	_y+1,w
+   489  1DD  0C20               	movlw	32
+   490  1DE  0643               	skipnz
+   491  1DF  009D               	subwf	_y,w
+   492  1E0  0703               	skipc
+   493  1E1  0BE3               	goto	u661
+   494  1E2  0BE4               	goto	u660
+   495  1E3                     u661:
+   496  1E3  0BC3               	goto	l997
+   497  1E4                     u660:
+   498  1E4                     l1003:
+   499                           
+   500                           ;newmain.c: 103:   x ++;
+   501  1E4  0C01               	movlw	1
+   502  1E5  002A               	movwf	btemp
+   503  1E6  006B               	clrf	btemp+1
+   504  1E7  020A               	movf	wtemp0,w
+   505  1E8  01F6               	addwf	_x,f
+   506  1E9  0603               	skipnc
+   507  1EA  02B7               	incf	_x+1,f
+   508  1EB  020B               	movf	wtemp0+1,w
+   509  1EC  01F7               	addwf	_x+1,f
+   510  1ED                     l1005:
+   511                           
+   512                           ;newmain.c: 105:          if (t >= 6){
+   513  1ED  0C00               	movlw	0
+   514  1EE  0093               	subwf	_t+1,w
+   515  1EF  0C06               	movlw	6
+   516  1F0  0643               	skipnz
+   517  1F1  0092               	subwf	_t,w
+   518  1F2  0703               	skipc
+   519  1F3  0BF5               	goto	u671
+   520  1F4  0BF6               	goto	u670
+   521  1F5                     u671:
+   522  1F5  0BFF               	goto	l57
+   523  1F6                     u670:
+   524  1F6                     l1007:
+   525                           
+   526                           ;newmain.c: 106:     y = 0;
+   527  1F6  007D               	clrf	_y
+   528  1F7  007E               	clrf	_y+1
+   529                           
+   530                           ;newmain.c: 107:     x = 0;
+   531  1F8  0076               	clrf	_x
+   532  1F9  0077               	clrf	_x+1
+   533                           
+   534                           ;newmain.c: 108:     clock_out = 0;
+   535  1FA  0070               	clrf	_clock_out
+   536  1FB  0071               	clrf	_clock_out+1
+   537                           
+   538                           ;newmain.c: 109:     t = 0;
+   539  1FC  0072               	clrf	_t
+   540  1FD  0073               	clrf	_t+1
+   541  1FE  0BAB               	goto	u641
+   542  1FF                     l57:	
+   543                           ;newmain.c: 113:     while(1){
+   544                           
+   545                           
+   546                           ;newmain.c: 114:        while (clock_out == 0){
+   547  1FF  0BAB               	goto	u641
+   548                           
+   549                           	psect	config
+   550                           
+   551                           ;Config register CONFIG @ 0xFFF
+   552                           ;	Oscillator Select
+   553                           ;	OSC = IntRC, INTOSC with 1.125 ms DRT
+   554                           ;	Watchdog Timer Enable bit
+   555                           ;	WDT = OFF, WDT disabled
+   556                           ;	Code Protect
+   557                           ;	CP = OFF, Code protection off
+   558                           ;	Master Clear Enable bit
+   559                           ;	MCLRE = ON, GP3/MCLR Functions as MCLR
+   560                           ;	Internal Oscillator Frequency Select bit
+   561                           ;	IOSCFS = ON, 8 MHz INTOSC Speed
+   562  0FFF                     	org	4095
+   563  0FFF  0FFA               	dw	4090
+   564                           
+   565                           	psect	maintext_split_1
+   566  0C7                     l1009:
+   567                           
+   568                           ;newmain.c: 115:       x ++;
+   569  0C7  0C01               	movlw	1
+   570  0C8  002A               	movwf	btemp
+   571  0C9  006B               	clrf	btemp+1
+   572  0CA  020A               	movf	wtemp0,w
+   573  0CB  01F6               	addwf	_x,f
+   574  0CC  0603               	skipnc
+   575  0CD  02B7               	incf	_x+1,f
+   576  0CE  020B               	movf	wtemp0+1,w
+   577  0CF  01F7               	addwf	_x+1,f
+   578  0D0                     l1011:
+   579                           
+   580                           ;newmain.c: 116:       t = 0;
+   581  0D0  0072               	clrf	_t
+   582  0D1  0073               	clrf	_t+1
+   583  0D2                     l1013:
+   584                           
+   585                           ;newmain.c: 117:       p = 0;
+   586  0D2  0074               	clrf	_p
+   587  0D3  0075               	clrf	_p+1
+   588  0D4                     l1015:
    589                           
-   590                           ;newmain.c: 113:        while (clock_out == 0){
-   591  3D0  0BF7               	goto	l864
-   592  3D1                     l846:
-   593                           
-   594                           ;newmain.c: 114:       x ++;
-   595  3D1  0C01               	movlw	1
-   596  3D2  002A               	movwf	btemp
-   597  3D3  006B               	clrf	btemp+1
-   598  3D4  020A               	movf	wtemp0,w
-   599  3D5  01F6               	addwf	_x,f
-   600  3D6  0603               	skipnc
-   601  3D7  02B7               	incf	_x+1,f
-   602  3D8  020B               	movf	wtemp0+1,w
-   603  3D9  01F7               	addwf	_x+1,f
-   604  3DA                     l848:
-   605                           
-   606                           ;newmain.c: 115:       t = 0;
-   607  3DA  0072               	clrf	_t
-   608  3DB  0073               	clrf	_t+1
-   609  3DC                     l850:
-   610                           
-   611                           ;newmain.c: 116:       p = 0;
-   612  3DC  0074               	clrf	_p
-   613  3DD  0075               	clrf	_p+1
-   614  3DE                     l852:
-   615                           
-   616                           ;newmain.c: 117:       GPIO = 0b00100100;
-   617  3DE  0C24               	movlw	36
-   618  3DF  0026               	movwf	6	;volatile
-   619  3E0                     l854:
-   620                           
-   621                           ;newmain.c: 118:       GPIO = 0b00010100;
-   622  3E0  0C14               	movlw	20
-   623  3E1  0026               	movwf	6	;volatile
-   624  3E2                     l856:
-   625                           
-   626                           ;newmain.c: 119:       _delay((unsigned long)((100)*(8000000/4000000.0)));
-   627  3E2  0C42               	movlw	66
-   628  3E3  04A4               	bcf	4,5	;FSR5=0, select bank0
-   629  3E4  003A               	movwf	??_main
-   630  3E5                     u757:
-   631  3E5  02FA               	decfsz	??_main,f
-   632  3E6  0BE5               	goto	u757
-   633  3E7                     l858:
-   634                           
-   635                           ;newmain.c: 120:       GPIO = 0b00100100;
-   636  3E7  0C24               	movlw	36
-   637  3E8  04A4               	bcf	4,5	;FSR5=0, select bank0
-   638  3E9  0026               	movwf	6	;volatile
-   639  3EA                     l860:
-   640                           
-   641                           ;newmain.c: 121:        if (x >= 65500) {
-   642  3EA  0CFF               	movlw	255
-   643  3EB  0097               	subwf	_x+1,w
-   644  3EC  0CDC               	movlw	220
-   645  3ED  0643               	skipnz
-   646  3EE  0096               	subwf	_x,w
-   647  3EF  0703               	skipc
-   648  3F0  0BF2               	goto	u471
-   649  3F1  0BF3               	goto	u470
-   650  3F2                     u471:
-   651  3F2  0BF7               	goto	l864
-   652  3F3                     u470:
-   653  3F3                     l862:
-   654                           
-   655                           ;newmain.c: 122:             clock_out = 1;
-   656  3F3  0C01               	movlw	1
-   657  3F4  0030               	movwf	_clock_out
-   658  3F5  0C00               	movlw	0
-   659  3F6  0031               	movwf	_clock_out+1
-   660  3F7                     l864:
-   661                           
-   662                           ;newmain.c: 113:        while (clock_out == 0){
-   663  3F7  0210               	movf	_clock_out,w
-   664  3F8  0111               	iorwf	_clock_out+1,w
-   665  3F9  0643               	btfsc	3,2
-   666  3FA  0BFC               	goto	u481
-   667  3FB  0BFD               	goto	u480
-   668  3FC                     u481:
-   669  3FC  0BD1               	goto	l846
-   670  3FD                     u480:
-   671  3FD  04A3  0AF0         	goto	l890
-   672                           
-   673                           	psect	maintext_split_2
-   674  0B6                     l866:
-   675                           
-   676                           ;newmain.c: 127:       x --;
-   677  0B6  0C01               	movlw	1
-   678  0B7  002A               	movwf	btemp
-   679  0B8  006B               	clrf	btemp+1
-   680  0B9  020A               	movf	wtemp0,w
-   681  0BA  00B6               	subwf	_x,f
-   682  0BB  020B               	movf	wtemp0+1,w
-   683  0BC  0703               	skipc
-   684  0BD  00F7               	decf	_x+1,f
-   685  0BE  00B7               	subwf	_x+1,f
-   686  0BF                     l868:
-   687                           
-   688                           ;newmain.c: 129:       GPIO = 0b00100100;
-   689  0BF  0C24               	movlw	36
-   690  0C0  0026               	movwf	6	;volatile
-   691  0C1                     l870:
-   692                           
-   693                           ;newmain.c: 130:       GPIO = 0b00010100;
-   694  0C1  0C14               	movlw	20
-   695  0C2  0026               	movwf	6	;volatile
-   696  0C3                     l872:
-   697                           
-   698                           ;newmain.c: 131:       _delay((unsigned long)((150)*(8000000/4000000.0)));
-   699  0C3  0C63               	movlw	99
-   700  0C4  04A4               	bcf	4,5	;FSR5=0, select bank0
-   701  0C5  003A               	movwf	??_main
-   702  0C6                     u767:
-   703  0C6  02FA               	decfsz	??_main,f
-   704  0C7  0AC6               	goto	u767
-   705  0C8  0000               	nop
-   706  0C9                     l874:
-   707                           
-   708                           ;newmain.c: 132:       GPIO = 0b00100100;
-   709  0C9  0C24               	movlw	36
-   710  0CA  04A4               	bcf	4,5	;FSR5=0, select bank0
-   711  0CB  0026               	movwf	6	;volatile
-   712  0CC                     l876:
-   713                           
-   714                           ;newmain.c: 133:        if (x == 0 && (p == 0 || t == 5)) {
-   715  0CC  0216               	movf	_x,w
-   716  0CD  0117               	iorwf	_x+1,w
-   717  0CE  0743               	btfss	3,2
-   718  0CF  0AD1               	goto	u491
-   719  0D0  0AD2               	goto	u490
-   720  0D1                     u491:
-   721  0D1  0AF0               	goto	l890
-   722  0D2                     u490:
-   723  0D2                     l878:
-   724  0D2  0214               	movf	_p,w
-   725  0D3  0115               	iorwf	_p+1,w
-   726  0D4  0643               	btfsc	3,2
-   727  0D5  0AD7               	goto	u501
-   728  0D6  0AD8               	goto	u500
-   729  0D7                     u501:
-   730  0D7  0ADF               	goto	l882
-   731  0D8                     u500:
-   732  0D8                     l880:
-   733  0D8  0C05               	movlw	5
-   734  0D9  0192               	xorwf	_t,w
-   735  0DA  0113               	iorwf	_t+1,w
-   736  0DB  0743               	btfss	3,2
-   737  0DC  0ADE               	goto	u511
-   738  0DD  0ADF               	goto	u510
-   739  0DE                     u511:
-   740  0DE  0AF0               	goto	l890
-   741  0DF                     u510:
-   742  0DF                     l882:
-   743                           
-   744                           ;newmain.c: 134:             clock_out = 2;
-   745  0DF  0C02               	movlw	2
-   746  0E0  0030               	movwf	_clock_out
-   747  0E1  0C00               	movlw	0
-   748  0E2  0031               	movwf	_clock_out+1
-   749  0E3                     l884:
-   750                           
-   751                           ;newmain.c: 136:             if (t == 5) clock_out = 0;
-   752  0E3  0C05               	movlw	5
-   753  0E4  0192               	xorwf	_t,w
-   754  0E5  0113               	iorwf	_t+1,w
-   755  0E6  0743               	btfss	3,2
-   756  0E7  0AE9               	goto	u521
-   757  0E8  0AEA               	goto	u520
-   758  0E9                     u521:
-   759  0E9  0AEC               	goto	l888
-   760  0EA                     u520:
-   761  0EA                     l886:
-   762  0EA  0070               	clrf	_clock_out
-   763  0EB  0071               	clrf	_clock_out+1
-   764  0EC                     l888:
-   765                           
-   766                           ;newmain.c: 137:             p = 1;
-   767  0EC  0C01               	movlw	1
-   768  0ED  0034               	movwf	_p
-   769  0EE  0C00               	movlw	0
-   770  0EF  0035               	movwf	_p+1
-   771  0F0                     l890:
-   772                           
-   773                           ;newmain.c: 126:        while (clock_out == 1){
-   774  0F0  00D0               	decf	_clock_out,w
-   775  0F1  0111               	iorwf	_clock_out+1,w
-   776  0F2  0643               	btfsc	3,2
-   777  0F3  0AF5               	goto	u531
-   778  0F4  0AF6               	goto	u530
-   779  0F5                     u531:
-   780  0F5  0AB6               	goto	l866
-   781  0F6                     u530:
-   782  0F6  0B36               	goto	l914
-   783  0F7                     l892:
-   784                           
-   785                           ;newmain.c: 142:       x ++;
-   786  0F7  0C01               	movlw	1
-   787  0F8  002A               	movwf	btemp
-   788  0F9  006B               	clrf	btemp+1
-   789  0FA  020A               	movf	wtemp0,w
-   790  0FB  01F6               	addwf	_x,f
-   791  0FC  0603               	skipnc
-   792  0FD  02B7               	incf	_x+1,f
-   793  0FE  020B               	movf	wtemp0+1,w
-   794  0FF  01F7               	addwf	_x+1,f
-   795  100                     l894:
+   590                           ;newmain.c: 118:       GPIO = 0b00100100;
+   591  0D4  0C24               	movlw	36
+   592  0D5  0026               	movwf	6	;volatile
+   593  0D6                     l1017:
+   594                           
+   595                           ;newmain.c: 119:       GPIO = 0b00010100;
+   596  0D6  0C14               	movlw	20
+   597  0D7  0026               	movwf	6	;volatile
+   598  0D8                     l1019:
+   599                           
+   600                           ;newmain.c: 120:       _delay((unsigned long)((100)*(8000000/4000000.0)));
+   601  0D8  0C42               	movlw	66
+   602  0D9  04A4               	bcf	4,5	;FSR5=0, select bank0
+   603  0DA  003A               	movwf	??_main
+   604  0DB                     u1217:
+   605  0DB  02FA               	decfsz	??_main,f
+   606  0DC  0ADB               	goto	u1217
+   607  0DD                     l1021:
+   608                           
+   609                           ;newmain.c: 121:       GPIO = 0b00100100;
+   610  0DD  0C24               	movlw	36
+   611  0DE  04A4               	bcf	4,5	;FSR5=0, select bank0
+   612  0DF  0026               	movwf	6	;volatile
+   613  0E0                     l1023:
+   614                           
+   615                           ;newmain.c: 122:        if (x >= 65500) {
+   616  0E0  0CFF               	movlw	255
+   617  0E1  0097               	subwf	_x+1,w
+   618  0E2  0CDC               	movlw	220
+   619  0E3  0643               	skipnz
+   620  0E4  0096               	subwf	_x,w
+   621  0E5  0703               	skipc
+   622  0E6  0AE8               	goto	u681
+   623  0E7  0AE9               	goto	u680
+   624  0E8                     u681:
+   625  0E8  0AED               	goto	l1027
+   626  0E9                     u680:
+   627  0E9                     l1025:
+   628                           
+   629                           ;newmain.c: 123:             clock_out = 1;
+   630  0E9  0C01               	movlw	1
+   631  0EA  0030               	movwf	_clock_out
+   632  0EB  0C00               	movlw	0
+   633  0EC  0031               	movwf	_clock_out+1
+   634  0ED                     l1027:
+   635                           
+   636                           ;newmain.c: 114:        while (clock_out == 0){
+   637  0ED  0210               	movf	_clock_out,w
+   638  0EE  0111               	iorwf	_clock_out+1,w
+   639  0EF  0643               	btfsc	3,2
+   640  0F0  0AF2               	goto	u691
+   641  0F1  0AF3               	goto	u690
+   642  0F2                     u691:
+   643  0F2  0AC7               	goto	l1009
+   644  0F3                     u690:
+   645  0F3  0B2E               	goto	l1053
+   646  0F4                     l1029:
+   647                           
+   648                           ;newmain.c: 128:       x --;
+   649  0F4  0C01               	movlw	1
+   650  0F5  002A               	movwf	btemp
+   651  0F6  006B               	clrf	btemp+1
+   652  0F7  020A               	movf	wtemp0,w
+   653  0F8  00B6               	subwf	_x,f
+   654  0F9  020B               	movf	wtemp0+1,w
+   655  0FA  0703               	skipc
+   656  0FB  00F7               	decf	_x+1,f
+   657  0FC  00B7               	subwf	_x+1,f
+   658  0FD                     l1031:
+   659                           
+   660                           ;newmain.c: 130:       GPIO = 0b00100000;
+   661  0FD  0C20               	movlw	32
+   662  0FE  0026               	movwf	6	;volatile
+   663  0FF                     l1033:
+   664                           
+   665                           ;newmain.c: 131:       GPIO = 0b00010000;
+   666  0FF  0C10               	movlw	16
+   667  100  0026               	movwf	6	;volatile
+   668  101                     l1035:
+   669                           
+   670                           ;newmain.c: 132:       _delay((unsigned long)((150)*(8000000/4000000.0)));
+   671  101  0C63               	movlw	99
+   672  102  04A4               	bcf	4,5	;FSR5=0, select bank0
+   673  103  003A               	movwf	??_main
+   674  104                     u1227:
+   675  104  02FA               	decfsz	??_main,f
+   676  105  0B04               	goto	u1227
+   677  106  0000               	nop
+   678  107                     l1037:
+   679                           
+   680                           ;newmain.c: 133:       GPIO = 0b00100000;
+   681  107  0C20               	movlw	32
+   682  108  04A4               	bcf	4,5	;FSR5=0, select bank0
+   683  109  0026               	movwf	6	;volatile
+   684  10A                     l1039:
+   685                           
+   686                           ;newmain.c: 134:        if (x == 0 && (p == 0 || t == 5)) {
+   687  10A  0216               	movf	_x,w
+   688  10B  0117               	iorwf	_x+1,w
+   689  10C  0743               	btfss	3,2
+   690  10D  0B0F               	goto	u701
+   691  10E  0B10               	goto	u700
+   692  10F                     u701:
+   693  10F  0B2E               	goto	l1053
+   694  110                     u700:
+   695  110                     l1041:
+   696  110  0214               	movf	_p,w
+   697  111  0115               	iorwf	_p+1,w
+   698  112  0643               	btfsc	3,2
+   699  113  0B15               	goto	u711
+   700  114  0B16               	goto	u710
+   701  115                     u711:
+   702  115  0B1D               	goto	l1045
+   703  116                     u710:
+   704  116                     l1043:
+   705  116  0C05               	movlw	5
+   706  117  0192               	xorwf	_t,w
+   707  118  0113               	iorwf	_t+1,w
+   708  119  0743               	btfss	3,2
+   709  11A  0B1C               	goto	u721
+   710  11B  0B1D               	goto	u720
+   711  11C                     u721:
+   712  11C  0B2E               	goto	l1053
+   713  11D                     u720:
+   714  11D                     l1045:
+   715                           
+   716                           ;newmain.c: 135:             clock_out = 2;
+   717  11D  0C02               	movlw	2
+   718  11E  0030               	movwf	_clock_out
+   719  11F  0C00               	movlw	0
+   720  120  0031               	movwf	_clock_out+1
+   721  121                     l1047:
+   722                           
+   723                           ;newmain.c: 137:             if (t == 5) clock_out = 0;
+   724  121  0C05               	movlw	5
+   725  122  0192               	xorwf	_t,w
+   726  123  0113               	iorwf	_t+1,w
+   727  124  0743               	btfss	3,2
+   728  125  0B27               	goto	u731
+   729  126  0B28               	goto	u730
+   730  127                     u731:
+   731  127  0B2A               	goto	l1051
+   732  128                     u730:
+   733  128                     l1049:
+   734  128  0070               	clrf	_clock_out
+   735  129  0071               	clrf	_clock_out+1
+   736  12A                     l1051:
+   737                           
+   738                           ;newmain.c: 138:             p = 1;
+   739  12A  0C01               	movlw	1
+   740  12B  0034               	movwf	_p
+   741  12C  0C00               	movlw	0
+   742  12D  0035               	movwf	_p+1
+   743  12E                     l1053:
+   744                           
+   745                           ;newmain.c: 127:        while (clock_out == 1){
+   746  12E  00D0               	decf	_clock_out,w
+   747  12F  0111               	iorwf	_clock_out+1,w
+   748  130  0643               	btfsc	3,2
+   749  131  0B33               	goto	u741
+   750  132  0B34               	goto	u740
+   751  133                     u741:
+   752  133  0AF4               	goto	l1029
+   753  134                     u740:
+   754  134  04A3  0ABE         	goto	l1077
+   755                           
+   756                           	psect	maintext_split_2
+   757  07F                     l1055:
+   758                           
+   759                           ;newmain.c: 143:       x ++;
+   760  07F  0C01               	movlw	1
+   761  080  002A               	movwf	btemp
+   762  081  006B               	clrf	btemp+1
+   763  082  020A               	movf	wtemp0,w
+   764  083  01F6               	addwf	_x,f
+   765  084  0603               	skipnc
+   766  085  02B7               	incf	_x+1,f
+   767  086  020B               	movf	wtemp0+1,w
+   768  087  01F7               	addwf	_x+1,f
+   769  088                     l1057:
+   770                           
+   771                           ;newmain.c: 144:       GPIO = 0b00100100;
+   772  088  0C24               	movlw	36
+   773  089  0026               	movwf	6	;volatile
+   774  08A                     l1059:
+   775                           
+   776                           ;newmain.c: 145:       GPIO = 0b00010100;
+   777  08A  0C14               	movlw	20
+   778  08B  0026               	movwf	6	;volatile
+   779  08C                     l1061:
+   780                           
+   781                           ;newmain.c: 146:       _delay((unsigned long)((200)*(8000000/4000000.0)));
+   782  08C  0C84               	movlw	132
+   783  08D  04A4               	bcf	4,5	;FSR5=0, select bank0
+   784  08E  003A               	movwf	??_main
+   785  08F                     u1237:
+   786  08F  02FA               	decfsz	??_main,f
+   787  090  0A8F               	goto	u1237
+   788  091  0A92               	nop2
+   789  092                     l1063:
+   790                           
+   791                           ;newmain.c: 147:       GPIO = 0b00100100;
+   792  092  0C24               	movlw	36
+   793  093  04A4               	bcf	4,5	;FSR5=0, select bank0
+   794  094  0026               	movwf	6	;volatile
+   795  095                     l1065:
    796                           
-   797                           ;newmain.c: 143:       GPIO = 0b00100000;
-   798  100  0C20               	movlw	32
-   799  101  0026               	movwf	6	;volatile
-   800  102                     l896:
-   801                           
-   802                           ;newmain.c: 144:       GPIO = 0b00010000;
-   803  102  0C10               	movlw	16
-   804  103  0026               	movwf	6	;volatile
-   805  104                     l898:
-   806                           
-   807                           ;newmain.c: 145:       _delay((unsigned long)((200)*(8000000/4000000.0)));
-   808  104  0C84               	movlw	132
-   809  105  04A4               	bcf	4,5	;FSR5=0, select bank0
-   810  106  003A               	movwf	??_main
-   811  107                     u777:
-   812  107  02FA               	decfsz	??_main,f
-   813  108  0B07               	goto	u777
-   814  109  0B0A               	nop2
-   815  10A                     l900:
-   816                           
-   817                           ;newmain.c: 146:       GPIO = 0b00100000;
-   818  10A  0C20               	movlw	32
-   819  10B  04A4               	bcf	4,5	;FSR5=0, select bank0
-   820  10C  0026               	movwf	6	;volatile
-   821  10D                     l902:
-   822                           
-   823                           ;newmain.c: 147:        if (x >= 65500 && (p == 1 || t == 5)) {
-   824  10D  0CFF               	movlw	255
-   825  10E  0097               	subwf	_x+1,w
-   826  10F  0CDC               	movlw	220
-   827  110  0643               	skipnz
-   828  111  0096               	subwf	_x,w
-   829  112  0703               	skipc
-   830  113  0B15               	goto	u541
-   831  114  0B16               	goto	u540
-   832  115                     u541:
-   833  115  0B36               	goto	l914
-   834  116                     u540:
-   835  116                     l904:
-   836  116  00D4               	decf	_p,w
-   837  117  0115               	iorwf	_p+1,w
-   838  118  0643               	btfsc	3,2
-   839  119  0B1B               	goto	u551
-   840  11A  0B1C               	goto	u550
-   841  11B                     u551:
-   842  11B  0B23               	goto	l908
-   843  11C                     u550:
-   844  11C                     l906:
-   845  11C  0C05               	movlw	5
-   846  11D  0192               	xorwf	_t,w
-   847  11E  0113               	iorwf	_t+1,w
-   848  11F  0743               	btfss	3,2
-   849  120  0B22               	goto	u561
-   850  121  0B23               	goto	u560
-   851  122                     u561:
-   852  122  0B36               	goto	l914
-   853  123                     u560:
-   854  123                     l908:
-   855                           
-   856                           ;newmain.c: 148:             clock_out = 3;
-   857  123  0C03               	movlw	3
-   858  124  0030               	movwf	_clock_out
-   859  125  0C00               	movlw	0
-   860  126  0031               	movwf	_clock_out+1
-   861  127                     l910:
-   862                           
-   863                           ;newmain.c: 150:             if (t == 5) clock_out = 1;
-   864  127  0C05               	movlw	5
-   865  128  0192               	xorwf	_t,w
-   866  129  0113               	iorwf	_t+1,w
-   867  12A  0743               	btfss	3,2
-   868  12B  0B2D               	goto	u571
-   869  12C  0B2E               	goto	u570
-   870  12D                     u571:
-   871  12D  0B32               	goto	l74
-   872  12E                     u570:
-   873  12E                     l912:
-   874  12E  0C01               	movlw	1
-   875  12F  0030               	movwf	_clock_out
-   876  130  0C00               	movlw	0
-   877  131  0031               	movwf	_clock_out+1
-   878  132                     l74:
-   879                           
-   880                           ;newmain.c: 151:             p = 2;
-   881  132  0C02               	movlw	2
-   882  133  0034               	movwf	_p
-   883  134  0C00               	movlw	0
-   884  135  0035               	movwf	_p+1
-   885  136                     l914:
-   886                           
-   887                           ;newmain.c: 141:        while (clock_out == 2){
-   888  136  0C02               	movlw	2
-   889  137  0190               	xorwf	_clock_out,w
-   890  138  0111               	iorwf	_clock_out+1,w
-   891  139  0643               	btfsc	3,2
-   892  13A  0B3C               	goto	u581
-   893  13B  0B3D               	goto	u580
-   894  13C                     u581:
-   895  13C  0AF7               	goto	l892
-   896  13D                     u580:
-   897  13D  0B7A               	goto	l938
-   898  13E                     l916:
-   899                           
-   900                           ;newmain.c: 156:       x --;
-   901  13E  0C01               	movlw	1
-   902  13F  002A               	movwf	btemp
-   903  140  006B               	clrf	btemp+1
-   904  141  020A               	movf	wtemp0,w
-   905  142  00B6               	subwf	_x,f
-   906  143  020B               	movf	wtemp0+1,w
-   907  144  0703               	skipc
-   908  145  00F7               	decf	_x+1,f
-   909  146  00B7               	subwf	_x+1,f
-   910  147                     l918:
-   911                           
-   912                           ;newmain.c: 157:       GPIO = 0b00100000;
-   913  147  0C20               	movlw	32
-   914  148  0026               	movwf	6	;volatile
-   915  149                     l920:
-   916                           
-   917                           ;newmain.c: 158:       GPIO = 0b00010000;
-   918  149  0C10               	movlw	16
-   919  14A  0026               	movwf	6	;volatile
-   920  14B                     l922:
-   921                           
-   922                           ;newmain.c: 159:       _delay((unsigned long)((250)*(8000000/4000000.0)));
-   923  14B  0CA6               	movlw	166
-   924  14C  04A4               	bcf	4,5	;FSR5=0, select bank0
-   925  14D  003A               	movwf	??_main
-   926  14E                     u787:
-   927  14E  02FA               	decfsz	??_main,f
-   928  14F  0B4E               	goto	u787
-   929  150                     l924:
-   930                           
-   931                           ;newmain.c: 160:       GPIO = 0b00100000;
-   932  150  0C20               	movlw	32
-   933  151  04A4               	bcf	4,5	;FSR5=0, select bank0
-   934  152  0026               	movwf	6	;volatile
-   935  153                     l926:
-   936                           
-   937                           ;newmain.c: 161:        if (x == 0 && (p == 2 || t == 5)) {
-   938  153  0216               	movf	_x,w
-   939  154  0117               	iorwf	_x+1,w
-   940  155  0743               	btfss	3,2
-   941  156  0B58               	goto	u591
-   942  157  0B59               	goto	u590
-   943  158                     u591:
-   944  158  0B7A               	goto	l938
-   945  159                     u590:
-   946  159                     l928:
-   947  159  0C02               	movlw	2
-   948  15A  0194               	xorwf	_p,w
-   949  15B  0115               	iorwf	_p+1,w
-   950  15C  0643               	btfsc	3,2
-   951  15D  0B5F               	goto	u601
-   952  15E  0B60               	goto	u600
-   953  15F                     u601:
-   954  15F  0B67               	goto	l932
-   955  160                     u600:
-   956  160                     l930:
-   957  160  0C05               	movlw	5
-   958  161  0192               	xorwf	_t,w
-   959  162  0113               	iorwf	_t+1,w
-   960  163  0743               	btfss	3,2
-   961  164  0B66               	goto	u611
-   962  165  0B67               	goto	u610
-   963  166                     u611:
-   964  166  0B7A               	goto	l938
-   965  167                     u610:
-   966  167                     l932:
+   797                           ;newmain.c: 148:        if (x >= 65500 && (p == 1 || t == 5)) {
+   798  095  0CFF               	movlw	255
+   799  096  0097               	subwf	_x+1,w
+   800  097  0CDC               	movlw	220
+   801  098  0643               	skipnz
+   802  099  0096               	subwf	_x,w
+   803  09A  0703               	skipc
+   804  09B  0A9D               	goto	u751
+   805  09C  0A9E               	goto	u750
+   806  09D                     u751:
+   807  09D  0ABE               	goto	l1077
+   808  09E                     u750:
+   809  09E                     l1067:
+   810  09E  00D4               	decf	_p,w
+   811  09F  0115               	iorwf	_p+1,w
+   812  0A0  0643               	btfsc	3,2
+   813  0A1  0AA3               	goto	u761
+   814  0A2  0AA4               	goto	u760
+   815  0A3                     u761:
+   816  0A3  0AAB               	goto	l1071
+   817  0A4                     u760:
+   818  0A4                     l1069:
+   819  0A4  0C05               	movlw	5
+   820  0A5  0192               	xorwf	_t,w
+   821  0A6  0113               	iorwf	_t+1,w
+   822  0A7  0743               	btfss	3,2
+   823  0A8  0AAA               	goto	u771
+   824  0A9  0AAB               	goto	u770
+   825  0AA                     u771:
+   826  0AA  0ABE               	goto	l1077
+   827  0AB                     u770:
+   828  0AB                     l1071:
+   829                           
+   830                           ;newmain.c: 149:             clock_out = 3;
+   831  0AB  0C03               	movlw	3
+   832  0AC  0030               	movwf	_clock_out
+   833  0AD  0C00               	movlw	0
+   834  0AE  0031               	movwf	_clock_out+1
+   835  0AF                     l1073:
+   836                           
+   837                           ;newmain.c: 151:             if (t == 5) clock_out = 1;
+   838  0AF  0C05               	movlw	5
+   839  0B0  0192               	xorwf	_t,w
+   840  0B1  0113               	iorwf	_t+1,w
+   841  0B2  0743               	btfss	3,2
+   842  0B3  0AB5               	goto	u781
+   843  0B4  0AB6               	goto	u780
+   844  0B5                     u781:
+   845  0B5  0ABA               	goto	l74
+   846  0B6                     u780:
+   847  0B6                     l1075:
+   848  0B6  0C01               	movlw	1
+   849  0B7  0030               	movwf	_clock_out
+   850  0B8  0C00               	movlw	0
+   851  0B9  0031               	movwf	_clock_out+1
+   852  0BA                     l74:
+   853                           
+   854                           ;newmain.c: 152:             p = 2;
+   855  0BA  0C02               	movlw	2
+   856  0BB  0034               	movwf	_p
+   857  0BC  0C00               	movlw	0
+   858  0BD  0035               	movwf	_p+1
+   859  0BE                     l1077:
+   860                           
+   861                           ;newmain.c: 142:        while (clock_out == 2){
+   862  0BE  0C02               	movlw	2
+   863  0BF  0190               	xorwf	_clock_out,w
+   864  0C0  0111               	iorwf	_clock_out+1,w
+   865  0C1  0643               	btfsc	3,2
+   866  0C2  0AC4               	goto	u791
+   867  0C3  0AC5               	goto	u790
+   868  0C4                     u791:
+   869  0C4  0A7F               	goto	l1055
+   870  0C5                     u790:
+   871  0C5  04A3  0A76         	goto	l1101
+   872                           
+   873                           	psect	maintext_split_3
+   874  03A                     l1079:
+   875                           
+   876                           ;newmain.c: 157:       x --;
+   877  03A  0C01               	movlw	1
+   878  03B  002A               	movwf	btemp
+   879  03C  006B               	clrf	btemp+1
+   880  03D  020A               	movf	wtemp0,w
+   881  03E  00B6               	subwf	_x,f
+   882  03F  020B               	movf	wtemp0+1,w
+   883  040  0703               	skipc
+   884  041  00F7               	decf	_x+1,f
+   885  042  00B7               	subwf	_x+1,f
+   886  043                     l1081:
+   887                           
+   888                           ;newmain.c: 158:       GPIO = 0b00100000;
+   889  043  0C20               	movlw	32
+   890  044  0026               	movwf	6	;volatile
+   891  045                     l1083:
+   892                           
+   893                           ;newmain.c: 159:       GPIO = 0b00010000;
+   894  045  0C10               	movlw	16
+   895  046  0026               	movwf	6	;volatile
+   896  047                     l1085:
+   897                           
+   898                           ;newmain.c: 160:       _delay((unsigned long)((250)*(8000000/4000000.0)));
+   899  047  0CA6               	movlw	166
+   900  048  04A4               	bcf	4,5	;FSR5=0, select bank0
+   901  049  003A               	movwf	??_main
+   902  04A                     u1247:
+   903  04A  02FA               	decfsz	??_main,f
+   904  04B  0A4A               	goto	u1247
+   905  04C                     l1087:
+   906                           
+   907                           ;newmain.c: 161:       GPIO = 0b00100000;
+   908  04C  0C20               	movlw	32
+   909  04D  04A4               	bcf	4,5	;FSR5=0, select bank0
+   910  04E  0026               	movwf	6	;volatile
+   911  04F                     l1089:
+   912                           
+   913                           ;newmain.c: 162:        if (x == 0 && (p == 2 || t == 5)) {
+   914  04F  0216               	movf	_x,w
+   915  050  0117               	iorwf	_x+1,w
+   916  051  0743               	btfss	3,2
+   917  052  0A54               	goto	u801
+   918  053  0A55               	goto	u800
+   919  054                     u801:
+   920  054  0A76               	goto	l1101
+   921  055                     u800:
+   922  055                     l1091:
+   923  055  0C02               	movlw	2
+   924  056  0194               	xorwf	_p,w
+   925  057  0115               	iorwf	_p+1,w
+   926  058  0643               	btfsc	3,2
+   927  059  0A5B               	goto	u811
+   928  05A  0A5C               	goto	u810
+   929  05B                     u811:
+   930  05B  0A63               	goto	l1095
+   931  05C                     u810:
+   932  05C                     l1093:
+   933  05C  0C05               	movlw	5
+   934  05D  0192               	xorwf	_t,w
+   935  05E  0113               	iorwf	_t+1,w
+   936  05F  0743               	btfss	3,2
+   937  060  0A62               	goto	u821
+   938  061  0A63               	goto	u820
+   939  062                     u821:
+   940  062  0A76               	goto	l1101
+   941  063                     u820:
+   942  063                     l1095:
+   943                           
+   944                           ;newmain.c: 163:             clock_out = 4;
+   945  063  0C04               	movlw	4
+   946  064  0030               	movwf	_clock_out
+   947  065  0C00               	movlw	0
+   948  066  0031               	movwf	_clock_out+1
+   949  067                     l1097:
+   950                           
+   951                           ;newmain.c: 165:             if (t == 5) clock_out = 2;
+   952  067  0C05               	movlw	5
+   953  068  0192               	xorwf	_t,w
+   954  069  0113               	iorwf	_t+1,w
+   955  06A  0743               	btfss	3,2
+   956  06B  0A6D               	goto	u831
+   957  06C  0A6E               	goto	u830
+   958  06D                     u831:
+   959  06D  0A72               	goto	l81
+   960  06E                     u830:
+   961  06E                     l1099:
+   962  06E  0C02               	movlw	2
+   963  06F  0030               	movwf	_clock_out
+   964  070  0C00               	movlw	0
+   965  071  0031               	movwf	_clock_out+1
+   966  072                     l81:
    967                           
-   968                           ;newmain.c: 162:             clock_out = 4;
-   969  167  0C04               	movlw	4
-   970  168  0030               	movwf	_clock_out
-   971  169  0C00               	movlw	0
-   972  16A  0031               	movwf	_clock_out+1
-   973  16B                     l934:
+   968                           ;newmain.c: 166:             p = 3;
+   969  072  0C03               	movlw	3
+   970  073  0034               	movwf	_p
+   971  074  0C00               	movlw	0
+   972  075  0035               	movwf	_p+1
+   973  076                     l1101:
    974                           
-   975                           ;newmain.c: 164:             if (t == 5) clock_out = 2;
-   976  16B  0C05               	movlw	5
-   977  16C  0192               	xorwf	_t,w
-   978  16D  0113               	iorwf	_t+1,w
-   979  16E  0743               	btfss	3,2
-   980  16F  0B71               	goto	u621
-   981  170  0B72               	goto	u620
-   982  171                     u621:
-   983  171  0B76               	goto	l81
-   984  172                     u620:
-   985  172                     l936:
-   986  172  0C02               	movlw	2
-   987  173  0030               	movwf	_clock_out
-   988  174  0C00               	movlw	0
-   989  175  0031               	movwf	_clock_out+1
-   990  176                     l81:
-   991                           
-   992                           ;newmain.c: 165:             p = 3;
-   993  176  0C03               	movlw	3
-   994  177  0034               	movwf	_p
-   995  178  0C00               	movlw	0
-   996  179  0035               	movwf	_p+1
-   997  17A                     l938:
-   998                           
-   999                           ;newmain.c: 155:        while (clock_out == 3){
-  1000  17A  0C03               	movlw	3
-  1001  17B  0190               	xorwf	_clock_out,w
-  1002  17C  0111               	iorwf	_clock_out+1,w
-  1003  17D  0643               	btfsc	3,2
-  1004  17E  0B80               	goto	u631
-  1005  17F  0B81               	goto	u630
-  1006  180                     u631:
-  1007  180  0B3E               	goto	l916
-  1008  181                     u630:
-  1009  181  0BC2               	goto	l962
-  1010  182                     l940:
+   975                           ;newmain.c: 156:        while (clock_out == 3){
+   976  076  0C03               	movlw	3
+   977  077  0190               	xorwf	_clock_out,w
+   978  078  0111               	iorwf	_clock_out+1,w
+   979  079  0643               	btfsc	3,2
+   980  07A  0A7C               	goto	u841
+   981  07B  0A7D               	goto	u840
+   982  07C                     u841:
+   983  07C  0A3A               	goto	l1079
+   984  07D                     u840:
+   985  07D  05A3  0A57         	goto	l1125
+   986                           
+   987                           	psect	maintext_split_4
+   988  217                     l1103:
+   989                           
+   990                           ;newmain.c: 171:       x ++;
+   991  217  0C01               	movlw	1
+   992  218  002A               	movwf	btemp
+   993  219  006B               	clrf	btemp+1
+   994  21A  020A               	movf	wtemp0,w
+   995  21B  01F6               	addwf	_x,f
+   996  21C  0603               	skipnc
+   997  21D  02B7               	incf	_x+1,f
+   998  21E  020B               	movf	wtemp0+1,w
+   999  21F  01F7               	addwf	_x+1,f
+  1000  220                     l1105:
+  1001                           
+  1002                           ;newmain.c: 172:       GPIO = 0b00100100;
+  1003  220  0C24               	movlw	36
+  1004  221  0026               	movwf	6	;volatile
+  1005  222                     l1107:
+  1006                           
+  1007                           ;newmain.c: 173:       GPIO = 0b00010100;
+  1008  222  0C14               	movlw	20
+  1009  223  0026               	movwf	6	;volatile
+  1010  224                     l1109:
   1011                           
-  1012                           ;newmain.c: 170:       x ++;
-  1013  182  0C01               	movlw	1
-  1014  183  002A               	movwf	btemp
-  1015  184  006B               	clrf	btemp+1
-  1016  185  020A               	movf	wtemp0,w
-  1017  186  01F6               	addwf	_x,f
-  1018  187  0603               	skipnc
-  1019  188  02B7               	incf	_x+1,f
-  1020  189  020B               	movf	wtemp0+1,w
-  1021  18A  01F7               	addwf	_x+1,f
-  1022  18B                     l942:
-  1023                           
-  1024                           ;newmain.c: 171:       GPIO = 0b00100000;
-  1025  18B  0C20               	movlw	32
-  1026  18C  0026               	movwf	6	;volatile
-  1027  18D                     l944:
-  1028                           
-  1029                           ;newmain.c: 172:       GPIO = 0b00010000;
-  1030  18D  0C10               	movlw	16
-  1031  18E  0026               	movwf	6	;volatile
-  1032  18F                     l946:
-  1033                           
-  1034                           ;newmain.c: 173:       _delay((unsigned long)((300)*(8000000/4000000.0)));
-  1035  18F  0CC7               	movlw	199
-  1036  190  04A4               	bcf	4,5	;FSR5=0, select bank0
-  1037  191  003A               	movwf	??_main
-  1038  192                     u797:
-  1039  192  02FA               	decfsz	??_main,f
-  1040  193  0B92               	goto	u797
-  1041  194  0000               	nop
-  1042  195                     l948:
-  1043                           
-  1044                           ;newmain.c: 174:       GPIO = 0b00100000;
-  1045  195  0C20               	movlw	32
-  1046  196  04A4               	bcf	4,5	;FSR5=0, select bank0
-  1047  197  0026               	movwf	6	;volatile
-  1048  198                     l950:
-  1049                           
-  1050                           ;newmain.c: 175:        if (x >= 65500 && (p == 3 || t == 5)) {
-  1051  198  0CFF               	movlw	255
-  1052  199  0097               	subwf	_x+1,w
-  1053  19A  0CDC               	movlw	220
-  1054  19B  0643               	skipnz
-  1055  19C  0096               	subwf	_x,w
-  1056  19D  0703               	skipc
-  1057  19E  0BA0               	goto	u641
-  1058  19F  0BA1               	goto	u640
-  1059  1A0                     u641:
-  1060  1A0  0BC2               	goto	l962
-  1061  1A1                     u640:
-  1062  1A1                     l952:
-  1063  1A1  0C03               	movlw	3
-  1064  1A2  0194               	xorwf	_p,w
-  1065  1A3  0115               	iorwf	_p+1,w
-  1066  1A4  0643               	btfsc	3,2
-  1067  1A5  0BA7               	goto	u651
-  1068  1A6  0BA8               	goto	u650
-  1069  1A7                     u651:
-  1070  1A7  0BAF               	goto	l956
-  1071  1A8                     u650:
-  1072  1A8                     l954:
-  1073  1A8  0C05               	movlw	5
-  1074  1A9  0192               	xorwf	_t,w
-  1075  1AA  0113               	iorwf	_t+1,w
-  1076  1AB  0743               	btfss	3,2
-  1077  1AC  0BAE               	goto	u661
-  1078  1AD  0BAF               	goto	u660
-  1079  1AE                     u661:
-  1080  1AE  0BC2               	goto	l962
-  1081  1AF                     u660:
-  1082  1AF                     l956:
-  1083                           
-  1084                           ;newmain.c: 176:             clock_out = 5;
-  1085  1AF  0C05               	movlw	5
-  1086  1B0  0030               	movwf	_clock_out
-  1087  1B1  0C00               	movlw	0
-  1088  1B2  0031               	movwf	_clock_out+1
-  1089  1B3                     l958:
-  1090                           
-  1091                           ;newmain.c: 178:             if (t == 5) clock_out = 3;
-  1092  1B3  0C05               	movlw	5
-  1093  1B4  0192               	xorwf	_t,w
-  1094  1B5  0113               	iorwf	_t+1,w
-  1095  1B6  0743               	btfss	3,2
-  1096  1B7  0BB9               	goto	u671
-  1097  1B8  0BBA               	goto	u670
-  1098  1B9                     u671:
-  1099  1B9  0BBE               	goto	l88
-  1100  1BA                     u670:
-  1101  1BA                     l960:
-  1102  1BA  0C03               	movlw	3
-  1103  1BB  0030               	movwf	_clock_out
-  1104  1BC  0C00               	movlw	0
-  1105  1BD  0031               	movwf	_clock_out+1
-  1106  1BE                     l88:
-  1107                           
-  1108                           ;newmain.c: 179:             p = 4;
-  1109  1BE  0C04               	movlw	4
-  1110  1BF  0034               	movwf	_p
-  1111  1C0  0C00               	movlw	0
-  1112  1C1  0035               	movwf	_p+1
-  1113  1C2                     l962:
-  1114                           
-  1115                           ;newmain.c: 169:        while (clock_out == 4){
-  1116  1C2  0C04               	movlw	4
-  1117  1C3  0190               	xorwf	_clock_out,w
-  1118  1C4  0111               	iorwf	_clock_out+1,w
-  1119  1C5  0643               	btfsc	3,2
-  1120  1C6  0BC8               	goto	u681
-  1121  1C7  0BC9               	goto	u680
-  1122  1C8                     u681:
-  1123  1C8  0B82               	goto	l940
-  1124  1C9                     u680:
-  1125  1C9  0BF5               	goto	l980
-  1126  1CA                     l964:
+  1012                           ;newmain.c: 174:       _delay((unsigned long)((300)*(8000000/4000000.0)));
+  1013  224  0CC7               	movlw	199
+  1014  225  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1015  226  003A               	movwf	??_main
+  1016  227                     u1257:
+  1017  227  02FA               	decfsz	??_main,f
+  1018  228  0A27               	goto	u1257
+  1019  229  0000               	nop
+  1020  22A                     l1111:
+  1021                           
+  1022                           ;newmain.c: 175:       GPIO = 0b00100100;
+  1023  22A  0C24               	movlw	36
+  1024  22B  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1025  22C  0026               	movwf	6	;volatile
+  1026  22D                     l1113:
+  1027                           
+  1028                           ;newmain.c: 176:        if (x >= 65500 && (p == 3 || t == 5)) {
+  1029  22D  0CFF               	movlw	255
+  1030  22E  0097               	subwf	_x+1,w
+  1031  22F  0CDC               	movlw	220
+  1032  230  0643               	skipnz
+  1033  231  0096               	subwf	_x,w
+  1034  232  0703               	skipc
+  1035  233  0A35               	goto	u851
+  1036  234  0A36               	goto	u850
+  1037  235                     u851:
+  1038  235  0A57               	goto	l1125
+  1039  236                     u850:
+  1040  236                     l1115:
+  1041  236  0C03               	movlw	3
+  1042  237  0194               	xorwf	_p,w
+  1043  238  0115               	iorwf	_p+1,w
+  1044  239  0643               	btfsc	3,2
+  1045  23A  0A3C               	goto	u861
+  1046  23B  0A3D               	goto	u860
+  1047  23C                     u861:
+  1048  23C  0A44               	goto	l1119
+  1049  23D                     u860:
+  1050  23D                     l1117:
+  1051  23D  0C05               	movlw	5
+  1052  23E  0192               	xorwf	_t,w
+  1053  23F  0113               	iorwf	_t+1,w
+  1054  240  0743               	btfss	3,2
+  1055  241  0A43               	goto	u871
+  1056  242  0A44               	goto	u870
+  1057  243                     u871:
+  1058  243  0A57               	goto	l1125
+  1059  244                     u870:
+  1060  244                     l1119:
+  1061                           
+  1062                           ;newmain.c: 177:             clock_out = 5;
+  1063  244  0C05               	movlw	5
+  1064  245  0030               	movwf	_clock_out
+  1065  246  0C00               	movlw	0
+  1066  247  0031               	movwf	_clock_out+1
+  1067  248                     l1121:
+  1068                           
+  1069                           ;newmain.c: 179:             if (t == 5) clock_out = 3;
+  1070  248  0C05               	movlw	5
+  1071  249  0192               	xorwf	_t,w
+  1072  24A  0113               	iorwf	_t+1,w
+  1073  24B  0743               	btfss	3,2
+  1074  24C  0A4E               	goto	u881
+  1075  24D  0A4F               	goto	u880
+  1076  24E                     u881:
+  1077  24E  0A53               	goto	l88
+  1078  24F                     u880:
+  1079  24F                     l1123:
+  1080  24F  0C03               	movlw	3
+  1081  250  0030               	movwf	_clock_out
+  1082  251  0C00               	movlw	0
+  1083  252  0031               	movwf	_clock_out+1
+  1084  253                     l88:
+  1085                           
+  1086                           ;newmain.c: 180:             p = 4;
+  1087  253  0C04               	movlw	4
+  1088  254  0034               	movwf	_p
+  1089  255  0C00               	movlw	0
+  1090  256  0035               	movwf	_p+1
+  1091  257                     l1125:
+  1092                           
+  1093                           ;newmain.c: 170:        while (clock_out == 4){
+  1094  257  0C04               	movlw	4
+  1095  258  0190               	xorwf	_clock_out,w
+  1096  259  0111               	iorwf	_clock_out+1,w
+  1097  25A  0643               	btfsc	3,2
+  1098  25B  0A5D               	goto	u891
+  1099  25C  0A5E               	goto	u890
+  1100  25D                     u891:
+  1101  25D  0A17               	goto	l1103
+  1102  25E                     u890:
+  1103  25E  0A9C               	goto	l1149
+  1104  25F                     l1127:
+  1105                           
+  1106                           ;newmain.c: 185:       x --;
+  1107  25F  0C01               	movlw	1
+  1108  260  002A               	movwf	btemp
+  1109  261  006B               	clrf	btemp+1
+  1110  262  020A               	movf	wtemp0,w
+  1111  263  00B6               	subwf	_x,f
+  1112  264  020B               	movf	wtemp0+1,w
+  1113  265  0703               	skipc
+  1114  266  00F7               	decf	_x+1,f
+  1115  267  00B7               	subwf	_x+1,f
+  1116  268                     l1129:
+  1117                           
+  1118                           ;newmain.c: 186:       GPIO = 0b00100000;
+  1119  268  0C20               	movlw	32
+  1120  269  0026               	movwf	6	;volatile
+  1121  26A                     l1131:
+  1122                           
+  1123                           ;newmain.c: 187:       GPIO = 0b00010000;
+  1124  26A  0C10               	movlw	16
+  1125  26B  0026               	movwf	6	;volatile
+  1126  26C                     l1133:
   1127                           
-  1128                           ;newmain.c: 184:       x --;
-  1129  1CA  0C01               	movlw	1
-  1130  1CB  002A               	movwf	btemp
-  1131  1CC  006B               	clrf	btemp+1
-  1132  1CD  020A               	movf	wtemp0,w
-  1133  1CE  00B6               	subwf	_x,f
-  1134  1CF  020B               	movf	wtemp0+1,w
-  1135  1D0  0703               	skipc
-  1136  1D1  00F7               	decf	_x+1,f
-  1137  1D2  00B7               	subwf	_x+1,f
-  1138  1D3                     l966:
-  1139                           
-  1140                           ;newmain.c: 185:       GPIO = 0b00100000;
-  1141  1D3  0C20               	movlw	32
-  1142  1D4  0026               	movwf	6	;volatile
-  1143  1D5                     l968:
-  1144                           
-  1145                           ;newmain.c: 186:       GPIO = 0b00010000;
-  1146  1D5  0C10               	movlw	16
-  1147  1D6  0026               	movwf	6	;volatile
-  1148  1D7                     l970:
-  1149                           
-  1150                           ;newmain.c: 187:       _delay((unsigned long)((350)*(8000000/4000000.0)));
-  1151  1D7  0CE8               	movlw	232
-  1152  1D8  04A4               	bcf	4,5	;FSR5=0, select bank0
-  1153  1D9  003A               	movwf	??_main
-  1154  1DA                     u807:
-  1155  1DA  02FA               	decfsz	??_main,f
-  1156  1DB  0BDA               	goto	u807
-  1157  1DC  0BDD               	nop2
-  1158  1DD                     l972:
-  1159                           
-  1160                           ;newmain.c: 188:       GPIO = 0b00100000;
-  1161  1DD  0C20               	movlw	32
-  1162  1DE  04A4               	bcf	4,5	;FSR5=0, select bank0
-  1163  1DF  0026               	movwf	6	;volatile
-  1164  1E0                     l974:
-  1165                           
-  1166                           ;newmain.c: 189:        if (x == 0 && p == 4) {
-  1167  1E0  0216               	movf	_x,w
-  1168  1E1  0117               	iorwf	_x+1,w
-  1169  1E2  0743               	btfss	3,2
-  1170  1E3  0BE5               	goto	u691
-  1171  1E4  0BE6               	goto	u690
-  1172  1E5                     u691:
-  1173  1E5  0BF5               	goto	l980
-  1174  1E6                     u690:
-  1175  1E6                     l976:
-  1176  1E6  0C04               	movlw	4
-  1177  1E7  0194               	xorwf	_p,w
-  1178  1E8  0115               	iorwf	_p+1,w
-  1179  1E9  0743               	btfss	3,2
-  1180  1EA  0BEC               	goto	u701
-  1181  1EB  0BED               	goto	u700
-  1182  1EC                     u701:
-  1183  1EC  0BF5               	goto	l980
-  1184  1ED                     u700:
-  1185  1ED                     l978:
-  1186                           
-  1187                           ;newmain.c: 190:             clock_out = 4;
-  1188  1ED  0C04               	movlw	4
-  1189  1EE  0030               	movwf	_clock_out
-  1190  1EF  0C00               	movlw	0
-  1191  1F0  0031               	movwf	_clock_out+1
-  1192                           
-  1193                           ;newmain.c: 191:             t = 5;
-  1194  1F1  0C05               	movlw	5
-  1195  1F2  0032               	movwf	_t
-  1196  1F3  0C00               	movlw	0
-  1197  1F4  0033               	movwf	_t+1
-  1198  1F5                     l980:
-  1199                           
-  1200                           ;newmain.c: 183:        while (clock_out == 5){
-  1201  1F5  0C05               	movlw	5
-  1202  1F6  0190               	xorwf	_clock_out,w
-  1203  1F7  0111               	iorwf	_clock_out+1,w
-  1204  1F8  0643               	btfsc	3,2
-  1205  1F9  0BFB               	goto	u711
-  1206  1FA  0BFC               	goto	u710
-  1207  1FB                     u711:
-  1208  1FB  0BCA               	goto	l964
-  1209  1FC                     u710:
-  1210  1FC  05A3  0BF7         	goto	l864
-  1211  1FE  04A3  0A00         	ljmp	start
-  1212  200                     __end_of_main:
-  1213  000A                     btemp	set	10	;btemp
-  1214  000A                     wtemp0	set	10
-  1215  000C                     wtemp1	set	12
-  1216  000E                     wtemp2	set	14
-  1217  000A                     ttemp0	set	10
-  1218  000D                     ttemp1	set	13
-  1219  000A                     ltemp0	set	10
-  1220  000C                     ltemp3	set	12
+  1128                           ;newmain.c: 188:       _delay((unsigned long)((350)*(8000000/4000000.0)));
+  1129  26C  0CE8               	movlw	232
+  1130  26D  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1131  26E  003A               	movwf	??_main
+  1132  26F                     u1267:
+  1133  26F  02FA               	decfsz	??_main,f
+  1134  270  0A6F               	goto	u1267
+  1135  271  0A72               	nop2
+  1136  272                     l1135:
+  1137                           
+  1138                           ;newmain.c: 189:       GPIO = 0b00100000;
+  1139  272  0C20               	movlw	32
+  1140  273  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1141  274  0026               	movwf	6	;volatile
+  1142  275                     l1137:
+  1143                           
+  1144                           ;newmain.c: 190:        if (x == 0 && (p == 4 || t == 5)) {
+  1145  275  0216               	movf	_x,w
+  1146  276  0117               	iorwf	_x+1,w
+  1147  277  0743               	btfss	3,2
+  1148  278  0A7A               	goto	u901
+  1149  279  0A7B               	goto	u900
+  1150  27A                     u901:
+  1151  27A  0A9C               	goto	l1149
+  1152  27B                     u900:
+  1153  27B                     l1139:
+  1154  27B  0C04               	movlw	4
+  1155  27C  0194               	xorwf	_p,w
+  1156  27D  0115               	iorwf	_p+1,w
+  1157  27E  0643               	btfsc	3,2
+  1158  27F  0A81               	goto	u911
+  1159  280  0A82               	goto	u910
+  1160  281                     u911:
+  1161  281  0A89               	goto	l1143
+  1162  282                     u910:
+  1163  282                     l1141:
+  1164  282  0C05               	movlw	5
+  1165  283  0192               	xorwf	_t,w
+  1166  284  0113               	iorwf	_t+1,w
+  1167  285  0743               	btfss	3,2
+  1168  286  0A88               	goto	u921
+  1169  287  0A89               	goto	u920
+  1170  288                     u921:
+  1171  288  0A9C               	goto	l1149
+  1172  289                     u920:
+  1173  289                     l1143:
+  1174                           
+  1175                           ;newmain.c: 191:             clock_out = 6;
+  1176  289  0C06               	movlw	6
+  1177  28A  0030               	movwf	_clock_out
+  1178  28B  0C00               	movlw	0
+  1179  28C  0031               	movwf	_clock_out+1
+  1180  28D                     l1145:
+  1181                           
+  1182                           ;newmain.c: 192:              if (t == 5) clock_out = 4;
+  1183  28D  0C05               	movlw	5
+  1184  28E  0192               	xorwf	_t,w
+  1185  28F  0113               	iorwf	_t+1,w
+  1186  290  0743               	btfss	3,2
+  1187  291  0A93               	goto	u931
+  1188  292  0A94               	goto	u930
+  1189  293                     u931:
+  1190  293  0A98               	goto	l95
+  1191  294                     u930:
+  1192  294                     l1147:
+  1193  294  0C04               	movlw	4
+  1194  295  0030               	movwf	_clock_out
+  1195  296  0C00               	movlw	0
+  1196  297  0031               	movwf	_clock_out+1
+  1197  298                     l95:
+  1198                           
+  1199                           ;newmain.c: 193:             p = 5;
+  1200  298  0C05               	movlw	5
+  1201  299  0034               	movwf	_p
+  1202  29A  0C00               	movlw	0
+  1203  29B  0035               	movwf	_p+1
+  1204  29C                     l1149:
+  1205                           
+  1206                           ;newmain.c: 184:        while (clock_out == 5){
+  1207  29C  0C05               	movlw	5
+  1208  29D  0190               	xorwf	_clock_out,w
+  1209  29E  0111               	iorwf	_clock_out+1,w
+  1210  29F  0643               	btfsc	3,2
+  1211  2A0  0AA2               	goto	u941
+  1212  2A1  0AA3               	goto	u940
+  1213  2A2                     u941:
+  1214  2A2  0A5F               	goto	l1127
+  1215  2A3                     u940:
+  1216  2A3  0AE4               	goto	l1173
+  1217  2A4                     l1151:
+  1218                           
+  1219                           ;newmain.c: 198:       x ++;
+  1220  2A4  0C01               	movlw	1
+  1221  2A5  002A               	movwf	btemp
+  1222  2A6  006B               	clrf	btemp+1
+  1223  2A7  020A               	movf	wtemp0,w
+  1224  2A8  01F6               	addwf	_x,f
+  1225  2A9  0603               	skipnc
+  1226  2AA  02B7               	incf	_x+1,f
+  1227  2AB  020B               	movf	wtemp0+1,w
+  1228  2AC  01F7               	addwf	_x+1,f
+  1229  2AD                     l1153:
+  1230                           
+  1231                           ;newmain.c: 199:       GPIO = 0b00100100;
+  1232  2AD  0C24               	movlw	36
+  1233  2AE  0026               	movwf	6	;volatile
+  1234  2AF                     l1155:
+  1235                           
+  1236                           ;newmain.c: 200:       GPIO = 0b00010100;
+  1237  2AF  0C14               	movlw	20
+  1238  2B0  0026               	movwf	6	;volatile
+  1239  2B1                     l1157:
+  1240                           
+  1241                           ;newmain.c: 201:       _delay((unsigned long)((375)*(8000000/4000000.0)));
+  1242  2B1  0CF9               	movlw	249
+  1243  2B2  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1244  2B3  003A               	movwf	??_main
+  1245  2B4                     u1277:
+  1246  2B4  02FA               	decfsz	??_main,f
+  1247  2B5  0AB4               	goto	u1277
+  1248  2B6  0000               	nop
+  1249  2B7                     l1159:
+  1250                           
+  1251                           ;newmain.c: 202:       GPIO = 0b00100100;
+  1252  2B7  0C24               	movlw	36
+  1253  2B8  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1254  2B9  0026               	movwf	6	;volatile
+  1255  2BA                     l1161:
+  1256                           
+  1257                           ;newmain.c: 203:        if (x == 65500 && (p == 5 || t == 5)) {
+  1258  2BA  0CDC               	movlw	220
+  1259  2BB  0196               	xorwf	_x,w
+  1260  2BC  0743               	skipz
+  1261  2BD  0AC2               	goto	u951
+  1262  2BE  0297               	incf	_x+1,w
+  1263  2BF  0743               	btfss	3,2
+  1264  2C0  0AC2               	goto	u951
+  1265  2C1  0AC3               	goto	u950
+  1266  2C2                     u951:
+  1267  2C2  0AE4               	goto	l1173
+  1268  2C3                     u950:
+  1269  2C3                     l1163:
+  1270  2C3  0C05               	movlw	5
+  1271  2C4  0194               	xorwf	_p,w
+  1272  2C5  0115               	iorwf	_p+1,w
+  1273  2C6  0643               	btfsc	3,2
+  1274  2C7  0AC9               	goto	u961
+  1275  2C8  0ACA               	goto	u960
+  1276  2C9                     u961:
+  1277  2C9  0AD1               	goto	l1167
+  1278  2CA                     u960:
+  1279  2CA                     l1165:
+  1280  2CA  0C05               	movlw	5
+  1281  2CB  0192               	xorwf	_t,w
+  1282  2CC  0113               	iorwf	_t+1,w
+  1283  2CD  0743               	btfss	3,2
+  1284  2CE  0AD0               	goto	u971
+  1285  2CF  0AD1               	goto	u970
+  1286  2D0                     u971:
+  1287  2D0  0AE4               	goto	l1173
+  1288  2D1                     u970:
+  1289  2D1                     l1167:
+  1290                           
+  1291                           ;newmain.c: 204:            clock_out = 7;
+  1292  2D1  0C07               	movlw	7
+  1293  2D2  0030               	movwf	_clock_out
+  1294  2D3  0C00               	movlw	0
+  1295  2D4  0031               	movwf	_clock_out+1
+  1296  2D5                     l1169:
+  1297                           
+  1298                           ;newmain.c: 205:             if (t == 5) clock_out = 5;
+  1299  2D5  0C05               	movlw	5
+  1300  2D6  0192               	xorwf	_t,w
+  1301  2D7  0113               	iorwf	_t+1,w
+  1302  2D8  0743               	btfss	3,2
+  1303  2D9  0ADB               	goto	u981
+  1304  2DA  0ADC               	goto	u980
+  1305  2DB                     u981:
+  1306  2DB  0AE0               	goto	l102
+  1307  2DC                     u980:
+  1308  2DC                     l1171:
+  1309  2DC  0C05               	movlw	5
+  1310  2DD  0030               	movwf	_clock_out
+  1311  2DE  0C00               	movlw	0
+  1312  2DF  0031               	movwf	_clock_out+1
+  1313  2E0                     l102:
+  1314                           
+  1315                           ;newmain.c: 206:             p = 6;
+  1316  2E0  0C06               	movlw	6
+  1317  2E1  0034               	movwf	_p
+  1318  2E2  0C00               	movlw	0
+  1319  2E3  0035               	movwf	_p+1
+  1320  2E4                     l1173:
+  1321                           
+  1322                           ;newmain.c: 197:         while (clock_out == 6){
+  1323  2E4  0C06               	movlw	6
+  1324  2E5  0190               	xorwf	_clock_out,w
+  1325  2E6  0111               	iorwf	_clock_out+1,w
+  1326  2E7  0643               	btfsc	3,2
+  1327  2E8  0AEA               	goto	u991
+  1328  2E9  0AEB               	goto	u990
+  1329  2EA                     u991:
+  1330  2EA  0AA4               	goto	l1151
+  1331  2EB                     u990:
+  1332  2EB  0B2B               	goto	l1197
+  1333  2EC                     l1175:
+  1334                           
+  1335                           ;newmain.c: 211:       x --;
+  1336  2EC  0C01               	movlw	1
+  1337  2ED  002A               	movwf	btemp
+  1338  2EE  006B               	clrf	btemp+1
+  1339  2EF  020A               	movf	wtemp0,w
+  1340  2F0  00B6               	subwf	_x,f
+  1341  2F1  020B               	movf	wtemp0+1,w
+  1342  2F2  0703               	skipc
+  1343  2F3  00F7               	decf	_x+1,f
+  1344  2F4  00B7               	subwf	_x+1,f
+  1345  2F5                     l1177:
+  1346                           
+  1347                           ;newmain.c: 212:       GPIO = 0b00100000;
+  1348  2F5  0C20               	movlw	32
+  1349  2F6  0026               	movwf	6	;volatile
+  1350  2F7                     l1179:
+  1351                           
+  1352                           ;newmain.c: 213:       GPIO = 0b00010000;
+  1353  2F7  0C10               	movlw	16
+  1354  2F8  0026               	movwf	6	;volatile
+  1355  2F9                     l1181:
+  1356                           
+  1357                           ;newmain.c: 214:       _delay((unsigned long)((400)*(8000000/4000000.0)));
+  1358  2F9  0C9F               	movlw	159
+  1359  2FA  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1360  2FB  003A               	movwf	??_main
+  1361  2FC                     u1287:
+  1362  2FC  0AFD               	nop2
+  1363  2FD  02FA               	decfsz	??_main,f
+  1364  2FE  0AFC               	goto	u1287
+  1365  2FF  0B00               	nop2
+  1366  300  0000               	nop
+  1367  301                     l1183:
+  1368                           
+  1369                           ;newmain.c: 215:       GPIO = 0b00100000;
+  1370  301  0C20               	movlw	32
+  1371  302  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1372  303  0026               	movwf	6	;volatile
+  1373  304                     l1185:
+  1374                           
+  1375                           ;newmain.c: 216:        if (x == 0 && (p == 6 || t == 5)) {
+  1376  304  0216               	movf	_x,w
+  1377  305  0117               	iorwf	_x+1,w
+  1378  306  0743               	btfss	3,2
+  1379  307  0B09               	goto	u1001
+  1380  308  0B0A               	goto	u1000
+  1381  309                     u1001:
+  1382  309  0B2B               	goto	l1197
+  1383  30A                     u1000:
+  1384  30A                     l1187:
+  1385  30A  0C06               	movlw	6
+  1386  30B  0194               	xorwf	_p,w
+  1387  30C  0115               	iorwf	_p+1,w
+  1388  30D  0643               	btfsc	3,2
+  1389  30E  0B10               	goto	u1011
+  1390  30F  0B11               	goto	u1010
+  1391  310                     u1011:
+  1392  310  0B18               	goto	l1191
+  1393  311                     u1010:
+  1394  311                     l1189:
+  1395  311  0C05               	movlw	5
+  1396  312  0192               	xorwf	_t,w
+  1397  313  0113               	iorwf	_t+1,w
+  1398  314  0743               	btfss	3,2
+  1399  315  0B17               	goto	u1021
+  1400  316  0B18               	goto	u1020
+  1401  317                     u1021:
+  1402  317  0B2B               	goto	l1197
+  1403  318                     u1020:
+  1404  318                     l1191:
+  1405                           
+  1406                           ;newmain.c: 217:            clock_out = 8;
+  1407  318  0C08               	movlw	8
+  1408  319  0030               	movwf	_clock_out
+  1409  31A  0C00               	movlw	0
+  1410  31B  0031               	movwf	_clock_out+1
+  1411  31C                     l1193:
+  1412                           
+  1413                           ;newmain.c: 218:             if (t == 5) clock_out = 6;
+  1414  31C  0C05               	movlw	5
+  1415  31D  0192               	xorwf	_t,w
+  1416  31E  0113               	iorwf	_t+1,w
+  1417  31F  0743               	btfss	3,2
+  1418  320  0B22               	goto	u1031
+  1419  321  0B23               	goto	u1030
+  1420  322                     u1031:
+  1421  322  0B27               	goto	l109
+  1422  323                     u1030:
+  1423  323                     l1195:
+  1424  323  0C06               	movlw	6
+  1425  324  0030               	movwf	_clock_out
+  1426  325  0C00               	movlw	0
+  1427  326  0031               	movwf	_clock_out+1
+  1428  327                     l109:
+  1429                           
+  1430                           ;newmain.c: 219:             p = 7;
+  1431  327  0C07               	movlw	7
+  1432  328  0034               	movwf	_p
+  1433  329  0C00               	movlw	0
+  1434  32A  0035               	movwf	_p+1
+  1435  32B                     l1197:
+  1436                           
+  1437                           ;newmain.c: 210:        while (clock_out == 7){
+  1438  32B  0C07               	movlw	7
+  1439  32C  0190               	xorwf	_clock_out,w
+  1440  32D  0111               	iorwf	_clock_out+1,w
+  1441  32E  0643               	btfsc	3,2
+  1442  32F  0B31               	goto	u1041
+  1443  330  0B32               	goto	u1040
+  1444  331                     u1041:
+  1445  331  0AEC               	goto	l1175
+  1446  332                     u1040:
+  1447  332  0B75               	goto	l1221
+  1448  333                     l1199:
+  1449                           
+  1450                           ;newmain.c: 224:       x ++;
+  1451  333  0C01               	movlw	1
+  1452  334  002A               	movwf	btemp
+  1453  335  006B               	clrf	btemp+1
+  1454  336  020A               	movf	wtemp0,w
+  1455  337  01F6               	addwf	_x,f
+  1456  338  0603               	skipnc
+  1457  339  02B7               	incf	_x+1,f
+  1458  33A  020B               	movf	wtemp0+1,w
+  1459  33B  01F7               	addwf	_x+1,f
+  1460  33C                     l1201:
+  1461                           
+  1462                           ;newmain.c: 225:       GPIO = 0b00100100;
+  1463  33C  0C24               	movlw	36
+  1464  33D  0026               	movwf	6	;volatile
+  1465  33E                     l1203:
+  1466                           
+  1467                           ;newmain.c: 226:       GPIO = 0b00010100;
+  1468  33E  0C14               	movlw	20
+  1469  33F  0026               	movwf	6	;volatile
+  1470  340                     l1205:
+  1471                           
+  1472                           ;newmain.c: 227:       _delay((unsigned long)((425)*(8000000/4000000.0)));
+  1473  340  0CA9               	movlw	169
+  1474  341  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1475  342  003A               	movwf	??_main
+  1476  343                     u1297:
+  1477  343  0B44               	nop2
+  1478  344  02FA               	decfsz	??_main,f
+  1479  345  0B43               	goto	u1297
+  1480  346  0B47               	nop2
+  1481  347  0000               	nop
+  1482  348                     l1207:
+  1483                           
+  1484                           ;newmain.c: 228:       GPIO = 0b00100100;
+  1485  348  0C24               	movlw	36
+  1486  349  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1487  34A  0026               	movwf	6	;volatile
+  1488  34B                     l1209:
+  1489                           
+  1490                           ;newmain.c: 229:        if (x == 65500 && (p == 7 || t == 5)) {
+  1491  34B  0CDC               	movlw	220
+  1492  34C  0196               	xorwf	_x,w
+  1493  34D  0743               	skipz
+  1494  34E  0B53               	goto	u1051
+  1495  34F  0297               	incf	_x+1,w
+  1496  350  0743               	btfss	3,2
+  1497  351  0B53               	goto	u1051
+  1498  352  0B54               	goto	u1050
+  1499  353                     u1051:
+  1500  353  0B75               	goto	l1221
+  1501  354                     u1050:
+  1502  354                     l1211:
+  1503  354  0C07               	movlw	7
+  1504  355  0194               	xorwf	_p,w
+  1505  356  0115               	iorwf	_p+1,w
+  1506  357  0643               	btfsc	3,2
+  1507  358  0B5A               	goto	u1061
+  1508  359  0B5B               	goto	u1060
+  1509  35A                     u1061:
+  1510  35A  0B62               	goto	l1215
+  1511  35B                     u1060:
+  1512  35B                     l1213:
+  1513  35B  0C05               	movlw	5
+  1514  35C  0192               	xorwf	_t,w
+  1515  35D  0113               	iorwf	_t+1,w
+  1516  35E  0743               	btfss	3,2
+  1517  35F  0B61               	goto	u1071
+  1518  360  0B62               	goto	u1070
+  1519  361                     u1071:
+  1520  361  0B75               	goto	l1221
+  1521  362                     u1070:
+  1522  362                     l1215:
+  1523                           
+  1524                           ;newmain.c: 230:            clock_out = 9;
+  1525  362  0C09               	movlw	9
+  1526  363  0030               	movwf	_clock_out
+  1527  364  0C00               	movlw	0
+  1528  365  0031               	movwf	_clock_out+1
+  1529  366                     l1217:
+  1530                           
+  1531                           ;newmain.c: 231:             if (t == 5) clock_out = 7;
+  1532  366  0C05               	movlw	5
+  1533  367  0192               	xorwf	_t,w
+  1534  368  0113               	iorwf	_t+1,w
+  1535  369  0743               	btfss	3,2
+  1536  36A  0B6C               	goto	u1081
+  1537  36B  0B6D               	goto	u1080
+  1538  36C                     u1081:
+  1539  36C  0B71               	goto	l116
+  1540  36D                     u1080:
+  1541  36D                     l1219:
+  1542  36D  0C07               	movlw	7
+  1543  36E  0030               	movwf	_clock_out
+  1544  36F  0C00               	movlw	0
+  1545  370  0031               	movwf	_clock_out+1
+  1546  371                     l116:
+  1547                           
+  1548                           ;newmain.c: 232:             p = 8;
+  1549  371  0C08               	movlw	8
+  1550  372  0034               	movwf	_p
+  1551  373  0C00               	movlw	0
+  1552  374  0035               	movwf	_p+1
+  1553  375                     l1221:
+  1554                           
+  1555                           ;newmain.c: 223:         while (clock_out == 8){
+  1556  375  0C08               	movlw	8
+  1557  376  0190               	xorwf	_clock_out,w
+  1558  377  0111               	iorwf	_clock_out+1,w
+  1559  378  0643               	btfsc	3,2
+  1560  379  0B7B               	goto	u1091
+  1561  37A  0B7C               	goto	u1090
+  1562  37B                     u1091:
+  1563  37B  0B33               	goto	l1199
+  1564  37C                     u1090:
+  1565  37C  0BBC               	goto	l1245
+  1566  37D                     l1223:
+  1567                           
+  1568                           ;newmain.c: 237:       x --;
+  1569  37D  0C01               	movlw	1
+  1570  37E  002A               	movwf	btemp
+  1571  37F  006B               	clrf	btemp+1
+  1572  380  020A               	movf	wtemp0,w
+  1573  381  00B6               	subwf	_x,f
+  1574  382  020B               	movf	wtemp0+1,w
+  1575  383  0703               	skipc
+  1576  384  00F7               	decf	_x+1,f
+  1577  385  00B7               	subwf	_x+1,f
+  1578  386                     l1225:
+  1579                           
+  1580                           ;newmain.c: 238:       GPIO = 0b00100000;
+  1581  386  0C20               	movlw	32
+  1582  387  0026               	movwf	6	;volatile
+  1583  388                     l1227:
+  1584                           
+  1585                           ;newmain.c: 239:       GPIO = 0b00010000;
+  1586  388  0C10               	movlw	16
+  1587  389  0026               	movwf	6	;volatile
+  1588  38A                     l1229:
+  1589                           
+  1590                           ;newmain.c: 240:       _delay((unsigned long)((450)*(8000000/4000000.0)));
+  1591  38A  0CB3               	movlw	179
+  1592  38B  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1593  38C  003A               	movwf	??_main
+  1594  38D                     u1307:
+  1595  38D  0B8E               	nop2
+  1596  38E  02FA               	decfsz	??_main,f
+  1597  38F  0B8D               	goto	u1307
+  1598  390  0B91               	nop2
+  1599  391  0000               	nop
+  1600  392                     l1231:
+  1601                           
+  1602                           ;newmain.c: 241:       GPIO = 0b00100000;
+  1603  392  0C20               	movlw	32
+  1604  393  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1605  394  0026               	movwf	6	;volatile
+  1606  395                     l1233:
+  1607                           
+  1608                           ;newmain.c: 242:        if (x == 0 && (p == 8 || t == 5)) {
+  1609  395  0216               	movf	_x,w
+  1610  396  0117               	iorwf	_x+1,w
+  1611  397  0743               	btfss	3,2
+  1612  398  0B9A               	goto	u1101
+  1613  399  0B9B               	goto	u1100
+  1614  39A                     u1101:
+  1615  39A  0BBC               	goto	l1245
+  1616  39B                     u1100:
+  1617  39B                     l1235:
+  1618  39B  0C08               	movlw	8
+  1619  39C  0194               	xorwf	_p,w
+  1620  39D  0115               	iorwf	_p+1,w
+  1621  39E  0643               	btfsc	3,2
+  1622  39F  0BA1               	goto	u1111
+  1623  3A0  0BA2               	goto	u1110
+  1624  3A1                     u1111:
+  1625  3A1  0BA9               	goto	l1239
+  1626  3A2                     u1110:
+  1627  3A2                     l1237:
+  1628  3A2  0C05               	movlw	5
+  1629  3A3  0192               	xorwf	_t,w
+  1630  3A4  0113               	iorwf	_t+1,w
+  1631  3A5  0743               	btfss	3,2
+  1632  3A6  0BA8               	goto	u1121
+  1633  3A7  0BA9               	goto	u1120
+  1634  3A8                     u1121:
+  1635  3A8  0BBC               	goto	l1245
+  1636  3A9                     u1120:
+  1637  3A9                     l1239:
+  1638                           
+  1639                           ;newmain.c: 243:            clock_out = 10;
+  1640  3A9  0C0A               	movlw	10
+  1641  3AA  0030               	movwf	_clock_out
+  1642  3AB  0C00               	movlw	0
+  1643  3AC  0031               	movwf	_clock_out+1
+  1644  3AD                     l1241:
+  1645                           
+  1646                           ;newmain.c: 244:             if (t == 5) clock_out = 8;
+  1647  3AD  0C05               	movlw	5
+  1648  3AE  0192               	xorwf	_t,w
+  1649  3AF  0113               	iorwf	_t+1,w
+  1650  3B0  0743               	btfss	3,2
+  1651  3B1  0BB3               	goto	u1131
+  1652  3B2  0BB4               	goto	u1130
+  1653  3B3                     u1131:
+  1654  3B3  0BB8               	goto	l123
+  1655  3B4                     u1130:
+  1656  3B4                     l1243:
+  1657  3B4  0C08               	movlw	8
+  1658  3B5  0030               	movwf	_clock_out
+  1659  3B6  0C00               	movlw	0
+  1660  3B7  0031               	movwf	_clock_out+1
+  1661  3B8                     l123:
+  1662                           
+  1663                           ;newmain.c: 245:             p = 9;
+  1664  3B8  0C09               	movlw	9
+  1665  3B9  0034               	movwf	_p
+  1666  3BA  0C00               	movlw	0
+  1667  3BB  0035               	movwf	_p+1
+  1668  3BC                     l1245:
+  1669                           
+  1670                           ;newmain.c: 236:        while (clock_out == 9){
+  1671  3BC  0C09               	movlw	9
+  1672  3BD  0190               	xorwf	_clock_out,w
+  1673  3BE  0111               	iorwf	_clock_out+1,w
+  1674  3BF  0643               	btfsc	3,2
+  1675  3C0  0BC2               	goto	u1141
+  1676  3C1  0BC3               	goto	u1140
+  1677  3C2                     u1141:
+  1678  3C2  0B7D               	goto	l1223
+  1679  3C3                     u1140:
+  1680  3C3  0BF4               	goto	l1263
+  1681  3C4                     l1247:
+  1682                           
+  1683                           ;newmain.c: 250:       x ++;
+  1684  3C4  0C01               	movlw	1
+  1685  3C5  002A               	movwf	btemp
+  1686  3C6  006B               	clrf	btemp+1
+  1687  3C7  020A               	movf	wtemp0,w
+  1688  3C8  01F6               	addwf	_x,f
+  1689  3C9  0603               	skipnc
+  1690  3CA  02B7               	incf	_x+1,f
+  1691  3CB  020B               	movf	wtemp0+1,w
+  1692  3CC  01F7               	addwf	_x+1,f
+  1693  3CD                     l1249:
+  1694                           
+  1695                           ;newmain.c: 251:       GPIO = 0b00100100;
+  1696  3CD  0C24               	movlw	36
+  1697  3CE  0026               	movwf	6	;volatile
+  1698  3CF                     l1251:
+  1699                           
+  1700                           ;newmain.c: 252:       GPIO = 0b00010100;
+  1701  3CF  0C14               	movlw	20
+  1702  3D0  0026               	movwf	6	;volatile
+  1703  3D1                     l1253:
+  1704                           
+  1705                           ;newmain.c: 253:       _delay((unsigned long)((475)*(8000000/4000000.0)));
+  1706  3D1  0CBD               	movlw	189
+  1707  3D2  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1708  3D3  003A               	movwf	??_main
+  1709  3D4                     u1317:
+  1710  3D4  0BD5               	nop2
+  1711  3D5  02FA               	decfsz	??_main,f
+  1712  3D6  0BD4               	goto	u1317
+  1713  3D7  0BD8               	nop2
+  1714  3D8  0000               	nop
+  1715  3D9                     l1255:
+  1716                           
+  1717                           ;newmain.c: 254:       GPIO = 0b00100100;
+  1718  3D9  0C24               	movlw	36
+  1719  3DA  04A4               	bcf	4,5	;FSR5=0, select bank0
+  1720  3DB  0026               	movwf	6	;volatile
+  1721  3DC                     l1257:
+  1722                           
+  1723                           ;newmain.c: 255:        if (x == 65500 && p == 9) {
+  1724  3DC  0CDC               	movlw	220
+  1725  3DD  0196               	xorwf	_x,w
+  1726  3DE  0743               	skipz
+  1727  3DF  0BE4               	goto	u1151
+  1728  3E0  0297               	incf	_x+1,w
+  1729  3E1  0743               	btfss	3,2
+  1730  3E2  0BE4               	goto	u1151
+  1731  3E3  0BE5               	goto	u1150
+  1732  3E4                     u1151:
+  1733  3E4  0BF4               	goto	l1263
+  1734  3E5                     u1150:
+  1735  3E5                     l1259:
+  1736  3E5  0C09               	movlw	9
+  1737  3E6  0194               	xorwf	_p,w
+  1738  3E7  0115               	iorwf	_p+1,w
+  1739  3E8  0743               	btfss	3,2
+  1740  3E9  0BEB               	goto	u1161
+  1741  3EA  0BEC               	goto	u1160
+  1742  3EB                     u1161:
+  1743  3EB  0BF4               	goto	l1263
+  1744  3EC                     u1160:
+  1745  3EC                     l1261:
+  1746                           
+  1747                           ;newmain.c: 256:             clock_out = 9;
+  1748  3EC  0C09               	movlw	9
+  1749  3ED  0030               	movwf	_clock_out
+  1750  3EE  0C00               	movlw	0
+  1751  3EF  0031               	movwf	_clock_out+1
+  1752                           
+  1753                           ;newmain.c: 257:             t = 5;
+  1754  3F0  0C05               	movlw	5
+  1755  3F1  0032               	movwf	_t
+  1756  3F2  0C00               	movlw	0
+  1757  3F3  0033               	movwf	_t+1
+  1758  3F4                     l1263:
+  1759                           
+  1760                           ;newmain.c: 249:         while (clock_out == 10){
+  1761  3F4  0C0A               	movlw	10
+  1762  3F5  0190               	xorwf	_clock_out,w
+  1763  3F6  0111               	iorwf	_clock_out+1,w
+  1764  3F7  0643               	btfsc	3,2
+  1765  3F8  0BFA               	goto	u1171
+  1766  3F9  0BFB               	goto	u1170
+  1767  3FA                     u1171:
+  1768  3FA  0BC4               	goto	l1247
+  1769  3FB                     u1170:
+  1770  3FB  04A3  0AED         	goto	l1027
+  1771  3FD  04A3  0A00         	ljmp	start
+  1772  3FF                     __end_of_main:
+  1773  000A                     btemp	set	10	;btemp
+  1774  000A                     wtemp0	set	10
+  1775  000C                     wtemp1	set	12
+  1776  000E                     wtemp2	set	14
+  1777  000A                     ttemp0	set	10
+  1778  000D                     ttemp1	set	13
+  1779  000A                     ltemp0	set	10
+  1780  000C                     ltemp3	set	12
 
 Data Sizes:
     Strings     0
@@ -1298,81 +1858,122 @@ DATA                 0      0      15       8        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Tue Jun 04 21:18:27 2024
+Symbol Table                                                                                   Wed Jun 05 20:54:43 2024
 
                       _p 0014                        _t 0012                        _x 0016  
-                      _y 001D                       l81 0176                       l57 03D0  
-                     l74 0132                       l88 01BE                       fsr 0004  
-                    l800 0075                      l810 00B3                      l802 0097  
-                    l900 010A                      l820 0358                      l812 032E  
-                    l804 0098                      l910 0127                      l902 010D  
-                    l830 0387                      l822 0361                      l814 033D  
-                    l806 009F                      l920 0149                      l912 012E  
-                    l904 0116                      l840 03B5                      l832 0391  
-                    l816 0346                      l808 00A8                      l824 0369  
-                    l930 0160                      l922 014B                      l906 011C  
-                    l914 0136                      l850 03DC                      l842 03BE  
-                    l834 0394                      l826 0377                      l818 034F  
-                    l940 0182                      l932 0167                      l924 0150  
-                    l916 013E                      l908 0123                      l860 03EA  
-                    l852 03DE                      l844 03C7                      l836 03A3  
-                    l828 037E                      l950 0198                      l942 018B  
-                    l934 016B                      l926 0153                      l918 0147  
-                    l870 00C1                      l862 03F3                      l854 03E0  
-                    l846 03D1                      l838 03AC                      l960 01BA  
-                    l952 01A1                      l944 018D                      l936 0172  
-                    l928 0159                      l880 00D8                      l872 00C3  
-                    l856 03E2                      l848 03DA                      l864 03F7  
-                    l970 01D7                      l954 01A8                      l946 018F  
-                    l962 01C2                      l938 017A                      l882 00DF  
-                    l874 00C9                      l866 00B6                      l890 00F0  
-                    l858 03E7                      l972 01DD                      l964 01CA  
-                    l980 01F5                      l956 01AF                      l948 0195  
-                    l892 00F7                      l884 00E3                      l876 00CC  
-                    l868 00BF                      l796 0071                      l974 01E0  
-                    l966 01D3                      l958 01B3                      l894 0100  
-                    l886 00EA                      l878 00D2                      l798 0073  
-                    l976 01E6                      l968 01D5                      l896 0102  
-                    l888 00EC                      l978 01ED                      l898 0104  
-                    u400 00A8                      u401 00A7                      u410 034F  
-                    u411 034E                      u500 00D8                      u420 0361  
-                    u501 00D7                      u421 0360                      u510 00DF  
-                    u430 037E                      u511 00DE                      u431 037D  
-                    u600 0160                      u520 00EA                      u440 0387  
-                    u601 015F                      u521 00E9                      u441 0386  
-                    u610 0167                      u530 00F6                      u450 03B5  
-                    u611 0166                      u531 00F5                      u451 03B4  
-                    u700 01ED                      u620 0172                      u540 0116  
-                    u460 03C7                      u701 01EC                      u621 0171  
-                    u541 0115                      u461 03C6                      u710 01FC  
-                    u630 0181                      u550 011C                      u470 03F3  
-                    u390 009F                      u374 007F                      u711 01FB  
-                    u631 0180                      u551 011B                      u471 03F2  
-                    u391 009D                      u375 007D                      u640 01A1  
-                    u560 0123                      u480 03FD                      u384 008E  
-                    u641 01A0                      u561 0122                      u481 03FC  
-                    u385 008C                      u650 01A8                      u570 012E  
-                    u490 00D2                      u651 01A7                      u571 012D  
-                    u491 00D1                      u660 01AF                      u580 013D  
-                    u661 01AE                      u581 013C                      u670 01BA  
-                    u590 0159                      u807 01DA                      u671 01B9  
-                    u591 0158                      u727 0335                      u680 01C9  
-                    u681 01C8                      u737 0370                      u690 01E6  
-                    u691 01E5                      u747 039B                      u757 03E5  
-                    u767 00C6                      u777 0107                      u787 014E  
-                    u797 0192                      indf 0000                     _ANS0 0046  
-                   _ANS1 0047                     _GPIO 0006                     _TMR0 0001  
-                   _main 0071                     btemp 000A                     start 0000  
-                  ?_main 001A                    _clock 0018                    ltemp0 000A  
-                  ltemp3 000C                    ttemp0 000A                    ttemp1 000D  
-                  status 0003                    wtemp0 000A                    wtemp1 000C  
-                  wtemp2 000E          __initialization 0002             __end_of_main 0200  
-                 ??_main 001A                   _ADCON0 0008                   _clock2 0034  
+                      _y 001D                       l81 0072                       l57 01FF  
+                     l74 00BA                       l95 0298                       l88 0253  
+                     fsr 0004                      l102 02E0                      l123 03B8  
+                    l116 0371                      l109 0327                      l961 013B  
+                    l971 014F                      l963 013D                      l955 0136  
+                    l981 017D                      l973 0159                      l965 013F  
+                    l957 0138                      l991 01AD                      l983 0186  
+                    l975 015C                      l967 0140                      l959 013A  
+                    l993 01B6                      l985 018F                      l977 016B  
+                    l969 0146                      l995 01C0                      l979 0174  
+                    l987 0197                      l997 01C3                      l989 01A5  
+                    l999 01D2                      u600 0146                      u601 0145  
+                    u610 014F                      u611 014E                      u700 0110  
+                    u620 017D                      u701 010F                      u621 017C  
+                    u710 0116                      u630 018F                      u711 0115  
+                    u631 018E                      u800 0055                      u720 011D  
+                    u640 01AD                      u801 0054                      u721 011C  
+                    u641 01AB                      u810 005C                      u730 0128  
+                    u650 01B6                      u811 005B                      u731 0127  
+                    u651 01B5                      u900 027B                      u820 0063  
+                    u740 0134                      u660 01E4                      u901 027A  
+                    u821 0062                      u741 0133                      u661 01E3  
+                    u910 0282                      u830 006E                      u750 009E  
+                    u670 01F6                      u911 0281                      u831 006D  
+                    u751 009D                      u671 01F5                      u920 0289  
+                    u840 007D                      u760 00A4                      u680 00E9  
+                    u921 0288                      u841 007C                      u761 00A3  
+                    u681 00E8                      u930 0294                      u850 0236  
+                    u770 00AB                      u690 00F3                      u931 0293  
+                    u851 0235                      u771 00AA                      u691 00F2  
+                    u940 02A3                      u860 023D                      u780 00B6  
+                    u941 02A2                      u861 023C                      u781 00B5  
+                    u950 02C3                      u870 0244                      u790 00C5  
+                    u951 02C2                      u871 0243                      u791 00C4  
+                    u960 02CA                      u880 024F                      u961 02C9  
+                    u881 024E                      u970 02D1                      u890 025E  
+                    u971 02D0                      u891 025D                      u980 02DC  
+                    u981 02DB                      u990 02EB                      u991 02EA  
+                    indf 0000                     l1001 01DB                     l1011 00D0  
+                   l1003 01E4                     l1101 0076                     l1021 00DD  
+                   l1013 00D2                     l1005 01ED                     l1111 022A  
+                   l1103 0217                     l1031 00FD                     l1023 00E0  
+                   l1015 00D4                     l1007 01F6                     l1201 033C  
+                   l1121 0248                     l1113 022D                     l1105 0220  
+                   l1041 0110                     l1033 00FF                     l1025 00E9  
+                   l1017 00D6                     l1009 00C7                     l1211 0354  
+                   l1203 033E                     l1131 026A                     l1123 024F  
+                   l1115 0236                     l1107 0222                     l1051 012A  
+                   l1043 0116                     l1035 0101                     l1019 00D8  
+                   l1027 00ED                     l1213 035B                     l1205 0340  
+                   l1221 0375                     l1141 0282                     l1133 026C  
+                   l1117 023D                     l1109 0224                     l1125 0257  
+                   l1061 008C                     l1045 011D                     l1037 0107  
+                   l1029 00F4                     l1053 012E                     l1231 0392  
+                   l1223 037D                     l1215 0362                     l1207 0348  
+                   l1151 02A4                     l1143 0289                     l1135 0272  
+                   l1127 025F                     l1119 0244                     l1071 00AB  
+                   l1063 0092                     l1055 007F                     l1047 0121  
+                   l1039 010A                     l1241 03AD                     l1233 0395  
+                   l1225 0386                     l1217 0366                     l1209 034B  
+                   l1161 02BA                     l1153 02AD                     l1145 028D  
+                   l1137 0275                     l1129 0268                     l1081 0043  
+                   l1073 00AF                     l1065 0095                     l1057 0088  
+                   l1049 0128                     l1251 03CF                     l1243 03B4  
+                   l1235 039B                     l1227 0388                     l1219 036D  
+                   l1171 02DC                     l1163 02C3                     l1155 02AF  
+                   l1147 0294                     l1139 027B                     l1091 0055  
+                   l1083 0045                     l1075 00B6                     l1067 009E  
+                   l1059 008A                     l1261 03EC                     l1253 03D1  
+                   l1237 03A2                     l1229 038A                     l1245 03BC  
+                   l1181 02F9                     l1165 02CA                     l1157 02B1  
+                   l1173 02E4                     l1149 029C                     l1093 005C  
+                   l1085 0047                     l1069 00A4                     l1077 00BE  
+                   l1255 03D9                     l1247 03C4                     l1263 03F4  
+                   l1239 03A9                     l1191 0318                     l1183 0301  
+                   l1175 02EC                     l1167 02D1                     l1159 02B7  
+                   l1095 0063                     l1087 004C                     l1079 003A  
+                   l1257 03DC                     l1249 03CD                     l1193 031C  
+                   l1185 0304                     l1177 02F5                     l1169 02D5  
+                   l1097 0067                     l1089 004F                     l1259 03E5  
+                   l1195 0323                     l1187 030A                     l1179 02F7  
+                   l1099 006E                     l1189 0311                     l1197 032B  
+                   l1199 0333                     u1000 030A                     u1001 0309  
+                   u1010 0311                     u1011 0310                     u1100 039B  
+                   u1020 0318                     u1101 039A                     u1021 0317  
+                   u1110 03A2                     u1030 0323                     u1111 03A1  
+                   u1031 0322                     u1120 03A9                     u1040 0332  
+                   u1121 03A8                     u1041 0331                     u1130 03B4  
+                   u1050 0354                     u1131 03B3                     u1051 0353  
+                   u1140 03C3                     u1060 035B                     u1141 03C2  
+                   u1061 035A                     u1150 03E5                     u1070 0362  
+                   u1151 03E4                     u1071 0361                     u1207 01CA  
+                   u1160 03EC                     u1080 036D                     u1161 03EB  
+                   u1081 036C                     u1217 00DB                     u1170 03FB  
+                   u1090 037C                     u1171 03FA                     u1307 038D  
+                   u1091 037B                     u1227 0104                     u1317 03D4  
+                   u1237 008F                     u1247 004A                     u1257 0227  
+                   u1267 026F                     u1187 0163                     u1277 02B4  
+                   u1197 019E                     u1287 02FC                     u1297 0343  
+                   _GPIO 0006                     _TMR0 0001                     _main 0136  
+                   btemp 000A                     start 0000                    ?_main 001A  
+                  _clock 0018                    ltemp0 000A                    ltemp3 000C  
+                  ttemp0 000A                    ttemp1 000D                    status 0003  
+                  wtemp0 000A                    wtemp1 000C                    wtemp2 000E  
+        __initialization 0002             __end_of_main 03FF                   ??_main 001A  
+                 _ADCON0 0008                   _OPTION 0000                   _clock2 0034  
                  _clock3 0032  __end_of__initialization 001F             __pidataBANK0 002B  
            __pidataBANK1 002D               __pbssBANK0 0010               __pbssBANK1 0030  
-             __pmaintext 0071                  clrloop0 0023     end_of_initialization 001F  
-                psplit$0 B000D                  psplit$1 D000E     pnum$maintext_split_1 000D  
-   pnum$maintext_split_2 000E      start_initialization 0002              __pdataBANK0 001D  
-            __pdataBANK1 0034                ___latbits 0001            __pcstackBANK0 001A  
-              _clock_out 0010              _clock_out_2 0030                clear_ram0 0022  
-               _TRISGPIO 0006             pnum$maintext 000B            __size_of_main 018F  
+             __pmaintext 0136                  _CM1CON0 0007                  clrloop0 0023  
+   end_of_initialization 001F                  psplit$0 B000D                  psplit$1 D000E  
+                psplit$2 E000F                  psplit$3 F0010     pnum$maintext_split_1 000D  
+   pnum$maintext_split_2 000E     pnum$maintext_split_3 000F     pnum$maintext_split_4 0010  
+    start_initialization 0002              __pdataBANK0 001D              __pdataBANK1 0034  
+              ___latbits 0001            __pcstackBANK0 001A                _clock_out 0010  
+            _clock_out_2 0030                clear_ram0 0022                 _TRISGPIO 0006  
+           pnum$maintext 000B            __size_of_main 02C9  
