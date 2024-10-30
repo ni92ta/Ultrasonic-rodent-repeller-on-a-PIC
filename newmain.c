@@ -16,30 +16,13 @@ unsigned int y = 1;
 unsigned int x;
 unsigned int p = 0;
 unsigned int t;
-unsigned int clock_out = 0;
-unsigned int clock_out_2 = 0;
+unsigned char clock_out = 0;
+unsigned char clock_out_2 = 0;
 unsigned char a = 1;
 unsigned char b = 0;
 //unsigned int aa = 0b00010001;
 //unsigned int bb = 0b00100001;
 //unsigned int cc = 0b00010001;
-//-------------------функция-обработчик задержки------------------
-void dela_y (unsigned int i){
-    
-	for(y = 0; y <= i; y++){
-		//__delay_us(1);
-	}
-}
-
-/*
-void Interrupt(void){
-// __delay_ms(500);
-         GP5 = 1;
-       //__delay_ms(500);
-        GP5 = 0;    
-    TMR0 = 1;
-}
-*/
 void main(void) {
    GPIO = 0b00000000;
    TRISGPIO = 0b00000000;
@@ -72,7 +55,7 @@ void main(void) {
   
 //==============================================================================  
     while(1){   
-     /*  while (clock_out == 0){//1
+       while (clock_out == 0){//1
       x ++;
       t = 0;
       p = 0;
@@ -213,50 +196,53 @@ void main(void) {
       GPIO = 0b00010001;//0b00010001 
       __delay_us(8);  //18(13,8kHz) 
       GPIO = 0b00100001;//0b00100001
-       if (x == 65500 && p == 9) {
-            clock_out = 9;
-            t = 5;
+             if (x == 65500 && (p == 9 || t == 5)) {
+           clock_out = 11;
+                 if (t == 5) clock_out = 9;
+            p = 10;
         } 
-        }       *///+++++++++++                     
-//---------------------------------------
-     /*   while (clock_out == 11){//12
+        }                         
+//---------------------------------------++
+        while (clock_out == 11){//12
       x --;
       GPIO = 0b00100000; 
       GPIO = 0b00010000; 
-      __delay_us(500);  //18(13,8kHz) 
+      __delay_us(7);//Задаём частоту излучения 
       GPIO = 0b00100000;
-       if (x == 0 && (p == 10 || t == 5)) {
-            if (t == 5) clock_out = 10;
+             if (x == 0 && (p == 10 || t == 5)) {
+           clock_out = 12;
+                 if (t == 5) clock_out = 10;
             p = 11;
+
         } 
         }     
 //---------------------------------------
-       while (clock_out == 12){//13
+    while (clock_out == 12){//13
       x ++;
       GPIO = 0b00100100; 
       GPIO = 0b00010100; 
-      __delay_us(525);  //18(13,8kHz) 
+      __delay_us(6);  //18(13,8kHz) 
       GPIO = 0b00100100;
-       if (x == 65500 && (p == 11 || t == 5)) {
-            if (t == 5) clock_out = 11;
+                   if (x == 65500 && (p == 11 || t == 5)) {
+          clock_out = 13;
+                if (t == 5) clock_out = 11;
             p = 12;
         } 
         }       
 //---------------------------------------
-       while (clock_out == 13){//14
+     /*   while (clock_out == 13){//14
       x --;
       GPIO = 0b00100000; 
       GPIO = 0b00010000; 
-      __delay_us(550);  //18(13,8kHz) 
+      __delay_us(5);  //18(13,8kHz) 
       GPIO = 0b00100000;
-       if (x == 0 && (p == 12 || t == 5)) {
-            if (t == 5) clock_out = 12;
-            //p = 13;
+                   if (x == 0 && p == 12) {//Проверяем 
+            clock_out = 12;
             t = 5;
         } 
-        }     
+        }   */  
 //---------------------------------------
-        while (clock_out == 14){//15
+      /*    while (clock_out == 14){//15
       x ++;
       GPIO = 0b00100100; 
       GPIO = 0b00010100; 
@@ -377,5 +363,22 @@ void main(void) {
     t = 0;
          }}
    //__delay_ms(100);
+ 
+ */
+
+/*
+ //---------------------------------------
+       while (clock_out == 9){//10
+      x --;
+      GPIO = 0b00100000; 
+      GPIO = 0b00010000; 
+      __delay_us(9);  //18(13,8kHz) 
+      GPIO = 0b00100000;
+       if (x == 0 && (p == 8 || t == 5)) {
+           clock_out = 10;
+            if (t == 5) clock_out = 8;
+            p = 9;
+        } 
+        }   
  
  */
