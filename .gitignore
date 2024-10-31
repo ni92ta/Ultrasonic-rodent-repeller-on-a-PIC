@@ -17,3 +17,4 @@ Makefile
 *.properties
 *.bash
 build/default/production/newmain.pre
+dist/default/production/Ultrasonic-rodent-repeller-on-a-PIC.production.lst
