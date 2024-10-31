@@ -4,8 +4,6 @@
  *
  * Created on 12 марта 2024 г., 20:10
  */
-
-
 #include <xc.h>
 #include "newfile.h"
 #define _XTAL_FREQ 8000000
@@ -20,9 +18,6 @@ unsigned char clock_out = 0;
 unsigned char clock_out_2 = 0;
 unsigned char a = 1;
 unsigned char b = 0;
-//unsigned int aa = 0b00010001;
-//unsigned int bb = 0b00100001;
-//unsigned int cc = 0b00010001;
 void main(void) {
    GPIO = 0b00000000;
    TRISGPIO = 0b00000000;
@@ -31,28 +26,18 @@ void main(void) {
    CM1CON0 = 0b01010001;
    OPTION /*REG*/ = 0b10000000;
    TMR0 = 0;
-   //OPTION = 0b10110000;//0bxx0xxxxx Тактирование таймера
-   //CM1CON0 = 0b11110000;
-   
-  
    while (a == 1){
    for(y = 0; y < 800; y++){//Частота 43 kHz 
           GPIO = 0b00010001; 
           GPIO = 0b00100001;
-           __delay_us(600);  //12   58  300(13,8kHz)
+           __delay_us(300);  //12   58  300(13,8kHz)
            GPIO = 0b00010001;
 	    }
    GPIO = 0;
    __delay_ms(500);
-   
-     
-   
    b += 1 ;
    if (b >= 2) a = 0; 
    }
-   
-
-  
 //==============================================================================  
     while(1){   
        while (clock_out == 0){//1
@@ -61,7 +46,7 @@ void main(void) {
       p = 0;
       GPIO = 0b00100001;// 0b00100001
       GPIO = 0b00010001; //0b00010001
-      __delay_us(28);  //18(13,8kHz) 
+      __delay_us(28);  //18(13,8kHz)
       GPIO = 0b00100001;//0b00100001
        if (x >= 65500) {
             clock_out = 1;
@@ -70,14 +55,12 @@ void main(void) {
 //---------------------------------------      
        while (clock_out == 1){//2
       x --;
-     // t = 0;
       GPIO = 0b00100000; 
       GPIO = 0b00010000; 
       __delay_us(26);  //18(13,8kHz) 
       GPIO = 0b00100000;
        if (x == 0 && (p == 0 || t == 5)) {
             clock_out = 2;
-            
             if (t == 5) clock_out = 0;
             p = 1;
         } 
@@ -91,7 +74,6 @@ void main(void) {
       GPIO = 0b00100001;//0b00100001
        if (x >= 65500 && (p == 1 || t == 5)) {
             clock_out = 3;
-            
             if (t == 5) clock_out = 1;
             p = 2;
         } 
@@ -167,7 +149,7 @@ void main(void) {
         while (clock_out == 8){//9
       x ++;
       GPIO = 0b00100001;//0b00100001 
-      GPIO = 0b00100001;//0b00100001
+      GPIO = 0b00010001;//0b00100001
       __delay_us(12);  //18(13,8kHz) 
       GPIO = 0b00100001;//0b00100001
        if (x == 65500 && (p == 7 || t == 5)) {
@@ -219,10 +201,10 @@ void main(void) {
 //---------------------------------------
     while (clock_out == 12){//13
       x ++;
-      GPIO = 0b00100100; 
-      GPIO = 0b00010100; 
+      GPIO = 0b00100101; 
+      GPIO = 0b00010101; 
       __delay_us(6);  //18(13,8kHz) 
-      GPIO = 0b00100100;
+      GPIO = 0b00100101;
                    if (x == 65500 && (p == 11 || t == 5)) {
           clock_out = 13;
                 if (t == 5) clock_out = 11;
@@ -230,7 +212,7 @@ void main(void) {
         } 
         }       
 //---------------------------------------
-     /*   while (clock_out == 13){//14
+        while (clock_out == 13){//14
       x --;
       GPIO = 0b00100000; 
       GPIO = 0b00010000; 
@@ -240,145 +222,7 @@ void main(void) {
             clock_out = 12;
             t = 5;
         } 
-        }   */  
-//---------------------------------------
-      /*    while (clock_out == 14){//15
-      x ++;
-      GPIO = 0b00100100; 
-      GPIO = 0b00010100; 
-      __delay_us(575);  //18(13,8kHz) 
-      GPIO = 0b00100100;
-       if (x == 65500) {
-            clock_out = 0;
-        } 
-        }    */   
-//---------------------------------------
-      /* while (clock_out == 7){//16
-      x --;
-      GPIO = 0b00100000; 
-      GPIO = 0b00010000; 
-      __delay_us(17);  //18(13,8kHz) 
-      GPIO = 0b00100000;
-       if (x == 0) {
-            clock_out = 0;
-        } 
-        } */    
-//---------------------------------------
+        }    
     }
 }
 
-/*
- 
-        while (clock_out == 7){//8
-      x --;
-      GPIO = 0b00100000; 
-      GPIO = 0b00010000; 
-      __delay_us(17);  //18(13,8kHz) 
-      GPIO = 0b00100000;
-       if (x == 0) {
-            clock_out = 0;
-        } 
-        }     
- 
- */
-
-/*
- 
-       if (clock_out == 0){
-              if (x >= 6){
-      t++;
-  }
-  else{
-      y = 0;
-  }
-     	for(; y < 800; y++){//Частота 43 kHz
-          GPIO = 0b00010001;// 0b00010001
-          GPIO = 0b00100001;//0b00100001
-           __delay_us(300);  //12   58  300(13,8kHz)
-           GPIO = 0b00010001;//0b00010001
-	    }       
-  x ++;
-
-         if (t >= 6){
-    y = 0; 
-    x = 0; 
-    clock_out = 0;
-    t = 0;
-         }}
-   __delay_ms(500);
- 
- */
-
-/*
-       if (clock_out == 0){
-              if (x >= 6){
-      t++;
-  }
-  else{
-      y = 0;
-  }
-     	for(; y < 800; y++){//Частота 43 kHz
-          GPIO = a;// 0b00010001
-          GPIO = b;//0b00100001
-           __delay_us(300);  //12   58  300(13,8kHz)
-           GPIO = c;//0b00010001
-	    }       
-  x ++;
-
-         if (t >= 6){
-    y = 0; 
-    x = 0; 
-    clock_out = 0;
-    t = 0;
-    
-    
-         // a = GPIO^(1<<1);// 0b00010001
-        //  b = GPIO^(1<<1);//0b00100001
-         // c = GPIO^(1<<1);//0b00010001 
-    
-    
-    
-         }}
-   __delay_ms(500);
-   
-         if (clock_out == 0){
-              if (x >= 6){
-      t++;
-  }
-  else{
-      y = 0;
-  }
-     	for(; y < 800; y++){//Частота 43 kHz
-          GPIO = 0b00010000;//0b00010000 
-          GPIO = 0b00100000;//0b00100000
-           __delay_us(300);  //12   58  300(13,8kHz)
-           GPIO = 0b00010000;//0b00010000
-	    }       
-  x ++;
-
-         if (t >= 6){
-    y = 0; 
-    x = 0; 
-    clock_out = 0;
-    t = 0;
-         }}
-   //__delay_ms(100);
- 
- */
-
-/*
- //---------------------------------------
-       while (clock_out == 9){//10
-      x --;
-      GPIO = 0b00100000; 
-      GPIO = 0b00010000; 
-      __delay_us(9);  //18(13,8kHz) 
-      GPIO = 0b00100000;
-       if (x == 0 && (p == 8 || t == 5)) {
-           clock_out = 10;
-            if (t == 5) clock_out = 8;
-            p = 9;
-        } 
-        }   
- 
- */
