@@ -16,3 +16,4 @@ Makefile
 *.mk
 *.properties
 *.bash
+build/default/production/newmain.pre
